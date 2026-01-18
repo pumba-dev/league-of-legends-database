@@ -143,7 +143,7 @@ function ChampionDetailPage() {
                     key={tag}
                     className="px-4 py-2 bg-lol-dark-secondary/80 backdrop-blur-md border border-lol-gold/30 rounded-lg text-lol-gold font-semibold"
                   >
-                    {tag}
+                    {t(`roles.${tag}`, tag)}
                   </span>
                 ))}
               </motion.div>
@@ -379,7 +379,7 @@ function ChampionDetailPage() {
             <div className="space-y-4">
               <div>
                 <div className="text-sm text-gray-500 mb-1">{t('champion.resource')}</div>
-                <div className="text-lg font-semibold text-lol-blue">{champion.partype}</div>
+                <div className="text-lg font-semibold text-lol-blue">{t(`resources.${champion.partype}`, champion.partype)}</div>
               </div>
               
               <div>

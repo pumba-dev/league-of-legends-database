@@ -12,6 +12,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
   const [selectedDifficulty, setSelectedDifficulty] = useState('all')
   const [selectedResource, setSelectedResource] = useState('all')
   const [selectedRange, setSelectedRange] = useState('all')
+  const [sortBy, setSortBy] = useState('name-asc')
 
   useEffect(() => {
     onFilterChange({
@@ -19,9 +20,10 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
       role: selectedRole,
       difficulty: selectedDifficulty,
       resource: selectedResource,
-      range: selectedRange
+      range: selectedRange,
+      sortBy
     })
-  }, [searchTerm, selectedRole, selectedDifficulty, selectedResource, selectedRange, onFilterChange])
+  }, [searchTerm, selectedRole, selectedDifficulty, selectedResource, selectedRange, sortBy, onFilterChange])
 
   const activeFiltersCount = [
     searchTerm,
@@ -60,7 +62,30 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
       </div>
 
       {/* Filters Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {/* Sort By */}
+        <div>
+          <label className="block text-sm font-medium text-gray-400 mb-2">
+            🔄 {t('filter.sortBy')}
+          </label>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
+          >
+            <option value="name-asc">{t('filter.nameAsc')}</option>
+            <option value="name-desc">{t('filter.nameDesc')}</option>
+            <option value="difficulty-asc">{t('filter.difficultyAsc')}</option>
+            <option value="difficulty-desc">{t('filter.difficultyDesc')}</option>
+            <option value="hp-desc">{t('filter.hpDesc')}</option>
+            <option value="hp-asc">{t('filter.hpAsc')}</option>
+            <option value="attack-desc">{t('filter.attackDesc')}</option>
+            <option value="attack-asc">{t('filter.attackAsc')}</option>
+            <option value="defense-desc">{t('filter.defenseDesc')}</option>
+            <option value="defense-asc">{t('filter.defenseAsc')}</option>
+          </select>
+        </div>
+
         {/* Role Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-400 mb-2">
@@ -74,7 +99,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
             <option value="all">{t('filter.allRoles')}</option>
             {allTags.map((tag) => (
               <option key={tag} value={tag}>
-                {tag}
+                {t(`roles.${tag}`, tag)}
               </option>
             ))}
           </select>
@@ -110,7 +135,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
             <option value="all">{t('filter.allResources')}</option>
             {allResourceTypes.map((resource) => (
               <option key={resource} value={resource}>
-                {resource}
+                {t(`resources.${resource}`, resource)}
               </option>
             ))}
           </select>
@@ -146,17 +171,17 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
           )}
           {selectedRole !== 'all' && (
             <span className="px-3 py-1 bg-lol-blue/20 text-lol-blue rounded-full text-sm">
-              🎯 {selectedRole}
+              🎯 {t(`roles.${selectedRole}`, selectedRole)}
             </span>
           )}
           {selectedDifficulty !== 'all' && (
             <span className="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">
-              ⭐ {selectedDifficulty}
+              ⭐ {selectedDifficulty === '1-3' ? t('filter.easy') : selectedDifficulty === '4-6' ? t('filter.medium') : t('filter.hard')}
             </span>
           )}
           {selectedResource !== 'all' && (
             <span className="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">
-              💎 {selectedResource}
+              💎 {t(`resources.${selectedResource}`, selectedResource)}
             </span>
           )}
           {selectedRange !== 'all' && (
@@ -171,6 +196,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
               setSelectedDifficulty('all')
               setSelectedResource('all')
               setSelectedRange('all')
+              setSortBy('name-asc')
             }}
             className="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm hover:bg-red-500/30 transition-colors flex items-center"
           >

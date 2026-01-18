@@ -5,8 +5,11 @@
  */
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function ChampionCard({ champion }) {
+  const { t } = useTranslation()
+  
   // URL para imagem do campeão (usando database local dragontail)
   const imageUrl = `/database/dragontail-16.1.1/16.1.1/img/champion/${champion.image.full}`
   
@@ -81,7 +84,7 @@ function ChampionCard({ champion }) {
                     borderColor: getRoleColor(tag).split(' ')[0].replace('from-', '#') + '40'
                   }}
                 >
-                  {tag}
+                  {t(`roles.${tag}`, tag)}
                 </span>
               ))}
             </div>

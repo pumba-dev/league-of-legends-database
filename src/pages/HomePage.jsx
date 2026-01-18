@@ -64,7 +64,7 @@ function HomePage() {
 
   // Filtrar campeões
   const filteredChampions = useMemo(() => {
-    return champions.filter(champion => {
+    let filtered = champions.filter(champion => {
       // Filtro por nome
       const matchesSearch = champion.name.toLowerCase().includes(filters.searchTerm.toLowerCase()) ||
                            champion.title.toLowerCase().includes(filters.searchTerm.toLowerCase())
@@ -105,6 +105,38 @@ function HomePage() {
 
       return matchesSearch && matchesRole && matchesDifficulty && matchesResource && matchesRange
     })
+
+    // Aplicar ordenação
+    if (filters.sortBy) {
+      filtered = [...filtered].sort((a, b) => {
+        switch (filters.sortBy) {
+          case 'name-asc':
+            return a.name.localeCompare(b.name)
+          case 'name-desc':
+            return b.name.localeCompare(a.name)
+          case 'difficulty-asc':
+            return a.info.difficulty - b.info.difficulty
+          case 'difficulty-desc':
+            return b.info.difficulty - a.info.difficulty
+          case 'hp-desc':
+            return b.stats.hp - a.stats.hp
+          case 'hp-asc':
+            return a.stats.hp - b.stats.hp
+          case 'attack-desc':
+            return b.info.attack - a.info.attack
+          case 'attack-asc':
+            return a.info.attack - b.info.attack
+          case 'defense-desc':
+            return b.info.defense - a.info.defense
+          case 'defense-asc':
+            return a.info.defense - b.info.defense
+          default:
+            return 0
+        }
+      })
+    }
+
+    return filtered
   }, [champions, filters])
 
   // Campeões a serem exibidos (para scroll infinito)
