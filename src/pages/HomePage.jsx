@@ -4,12 +4,14 @@
  * ATUALIZADO: Usando database completa do dragontail com 172 campeões
  */
 import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import ChampionCard from '../components/ChampionCard'
 import FilterBar from '../components/FilterBar'
 import SkeletonCard from '../components/SkeletonCard'
 import StatsOverview from '../components/StatsOverview'
 
 function HomePage() {
+  const { t } = useTranslation()
   const [loading, setLoading] = useState(true)
   const [champions, setChampions] = useState([])
   const [filters, setFilters] = useState({ 
@@ -143,11 +145,10 @@ function HomePage() {
       {/* Hero Section */}
       <div className="text-center mb-12">
         <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-4">
-          Champion Dex
+          {t('home.title')}
         </h1>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Explore todos os {champions.length} campeões do League of Legends. 
-          Descubra habilidades, estatísticas e histórias épicas.
+          {t('home.subtitle', { count: champions.length })}
         </p>
       </div>
 
@@ -163,8 +164,7 @@ function HomePage() {
 
       {/* Results Count */}
       <div className="mb-6 text-gray-400">
-        Exibindo <span className="text-lol-gold font-semibold">{displayedChampions.length}</span> de{' '}
-        <span className="text-lol-gold font-semibold">{filteredChampions.length}</span> campeões
+        <span dangerouslySetInnerHTML={{ __html: t('home.showing', { displayed: displayedChampions.length, total: filteredChampions.length }).replace(/<1>/g, '<span class="text-lol-gold font-semibold">').replace(/<\/1>/g, '</span>').replace(/<3>/g, '<span class="text-lol-gold font-semibold">').replace(/<\/3>/g, '</span>') }} />
       </div>
 
       {/* Champions Grid */}
@@ -180,8 +180,8 @@ function HomePage() {
           <svg className="w-24 h-24 mx-auto text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <h3 className="text-2xl font-bold text-gray-500 mb-2">Nenhum campeão encontrado</h3>
-          <p className="text-gray-600">Tente ajustar os filtros de busca</p>
+          <h3 className="text-2xl font-bold text-gray-500 mb-2">{t('home.noResults')}</h3>
+          <p className="text-gray-600">{t('home.tryAdjusting')}</p>
         </div>
       ) : (
         <>
@@ -196,7 +196,7 @@ function HomePage() {
             <div className="mt-8 flex justify-center">
               <div className="flex items-center space-x-2 text-lol-gold">
                 <div className="w-8 h-8 border-4 border-lol-gold border-t-transparent rounded-full animate-spin" />
-                <span>Carregando mais campeões...</span>
+                <span>{t('home.loadingMore')}</span>
               </div>
             </div>
           )}
@@ -204,7 +204,7 @@ function HomePage() {
           {/* End of List Message */}
           {displayCount >= filteredChampions.length && filteredChampions.length > 20 && (
             <div className="mt-8 text-center text-gray-500">
-              <p>Você chegou ao final da lista! 🎮</p>
+              <p>{t('home.endOfList')}</p>
             </div>
           )}
         </>

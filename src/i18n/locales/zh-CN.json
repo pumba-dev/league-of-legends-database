@@ -1,0 +1,97 @@
+{
+  "header": {
+    "title": "Champion Dex",
+    "subtitle": "英雄联盟百科全书"
+  },
+  "footer": {
+    "developed": "使用 React & Tailwind CSS 开发",
+    "disclaimer": "英雄联盟及所有相关资源均为 Riot Games 所有"
+  },
+  "home": {
+    "title": "Champion Dex",
+    "subtitle": "探索英雄联盟所有 {{count}} 个英雄。发现技能、数据和史诗般的故事。",
+    "showing": "显示 <1>{{displayed}}</1> / <3>{{total}}</3> 个英雄",
+    "loadingMore": "加载更多英雄...",
+    "endOfList": "已到达列表底部！🎮",
+    "noResults": "未找到英雄",
+    "tryAdjusting": "尝试调整搜索过滤器"
+  },
+  "filter": {
+    "search": "按名称或称号搜索英雄...",
+    "activeFilters": "活动过滤器：",
+    "clearAll": "清除全部",
+    "role": "位置 / 类型",
+    "allRoles": "所有位置",
+    "difficulty": "难度",
+    "allDifficulties": "全部",
+    "easy": "简单 (1-3)",
+    "medium": "中等 (4-6)",
+    "hard": "困难 (7-10)",
+    "resource": "资源类型",
+    "allResources": "全部",
+    "range": "攻击距离",
+    "allRanges": "全部",
+    "melee": "近战 (< 200)",
+    "short": "短距离 (200-400)",
+    "mediumRange": "中距离 (400-550)",
+    "long": "远距离 (> 550)"
+  },
+  "stats": {
+    "totalChampions": "英雄总数",
+    "avgDifficulty": "平均难度",
+    "mostCommonRole": "最常见位置",
+    "highestHP": "最高基础生命值",
+    "champions": "个英雄",
+    "hp": "生命值"
+  },
+  "champion": {
+    "loading": "加载英雄中...",
+    "notFound": "未找到英雄",
+    "backToList": "返回列表",
+    "back": "返回",
+    "lore": "背景故事",
+    "baseStats": "基础属性",
+    "detailedStats": "详细属性",
+    "passive": "被动技能",
+    "abilities": "技能",
+    "skins": "皮肤",
+    "attributes": "属性",
+    "quickInfo": "快速信息",
+    "resource": "资源",
+    "difficultyLevel": "难度",
+    "easy": "简单",
+    "medium": "中等",
+    "hard": "困难",
+    "attack": "攻击",
+    "defense": "防御",
+    "magic": "魔法",
+    "difficulty": "难度",
+    "version": "版本",
+    "id": "ID"
+  },
+  "tips": {
+    "howToPlay": "如何使用",
+    "howToCounter": "如何对抗"
+  },
+  "statNames": {
+    "hp": "生命值",
+    "mana": "法力值",
+    "armor": "护甲",
+    "magicResist": "魔法抗性",
+    "attackDamage": "攻击力",
+    "attackSpeed": "攻击速度",
+    "moveSpeed": "移动速度",
+    "attackRange": "攻击距离",
+    "hpRegen": "生命回复",
+    "manaRegen": "法力回复"
+  },
+  "language": {
+    "select": "语言",
+    "portuguese": "Português",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "chinese": "中文"
+  }
+}

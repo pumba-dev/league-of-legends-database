@@ -3,8 +3,10 @@
  * Filtros: nome, role, dificuldade, tipo de recurso, alcance
  */
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
+  const { t } = useTranslation()
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedRole, setSelectedRole] = useState('all')
   const [selectedDifficulty, setSelectedDifficulty] = useState('all')
@@ -35,7 +37,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
       <div className="relative">
         <input
           type="text"
-          placeholder="Buscar campeão por nome ou título..."
+          placeholder={t('filter.search')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 pl-12 text-white placeholder-gray-500 focus:outline-none focus:border-lol-gold transition-colors"
@@ -62,14 +64,14 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
         {/* Role Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-400 mb-2">
-            🎯 Role / Classe
+            🎯 {t('filter.role')}
           </label>
           <select
             value={selectedRole}
             onChange={(e) => setSelectedRole(e.target.value)}
             className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
           >
-            <option value="all">Todas as Roles</option>
+            <option value="all">{t('filter.allRoles')}</option>
             {allTags.map((tag) => (
               <option key={tag} value={tag}>
                 {tag}
@@ -81,31 +83,31 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
         {/* Difficulty Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-400 mb-2">
-            ⭐ Dificuldade
+            ⭐ {t('filter.difficulty')}
           </label>
           <select
             value={selectedDifficulty}
             onChange={(e) => setSelectedDifficulty(e.target.value)}
             className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
           >
-            <option value="all">Todas</option>
-            <option value="1-3">Fácil (1-3)</option>
-            <option value="4-6">Médio (4-6)</option>
-            <option value="7-10">Difícil (7-10)</option>
+            <option value="all">{t('filter.allDifficulties')}</option>
+            <option value="1-3">{t('filter.easy')}</option>
+            <option value="4-6">{t('filter.medium')}</option>
+            <option value="7-10">{t('filter.hard')}</option>
           </select>
         </div>
 
         {/* Resource Type Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-400 mb-2">
-            💎 Tipo de Recurso
+            💎 {t('filter.resource')}
           </label>
           <select
             value={selectedResource}
             onChange={(e) => setSelectedResource(e.target.value)}
             className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
           >
-            <option value="all">Todos</option>
+            <option value="all">{t('filter.allResources')}</option>
             {allResourceTypes.map((resource) => (
               <option key={resource} value={resource}>
                 {resource}
@@ -117,18 +119,18 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
         {/* Range Filter */}
         <div>
           <label className="block text-sm font-medium text-gray-400 mb-2">
-            📏 Alcance de Ataque
+            📏 {t('filter.range')}
           </label>
           <select
             value={selectedRange}
             onChange={(e) => setSelectedRange(e.target.value)}
             className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
           >
-            <option value="all">Todos</option>
-            <option value="melee">Corpo a Corpo (&lt; 200)</option>
-            <option value="short">Curto (200-400)</option>
-            <option value="medium">Médio (400-550)</option>
-            <option value="long">Longo (&gt; 550)</option>
+            <option value="all">{t('filter.allRanges')}</option>
+            <option value="melee">{t('filter.melee')}</option>
+            <option value="short">{t('filter.short')}</option>
+            <option value="medium">{t('filter.mediumRange')}</option>
+            <option value="long">{t('filter.long')}</option>
           </select>
         </div>
       </div>
@@ -136,7 +138,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
       {/* Active Filters Display */}
       {activeFiltersCount > 0 && (
         <div className="flex flex-wrap gap-2 pt-2 border-t border-lol-gold/20">
-          <span className="text-sm text-gray-400 font-semibold">Filtros ativos:</span>
+          <span className="text-sm text-gray-400 font-semibold">{t('filter.activeFilters')}</span>
           {searchTerm && (
             <span className="px-3 py-1 bg-lol-gold/20 text-lol-gold rounded-full text-sm flex items-center">
               🔍 "{searchTerm}"
@@ -159,7 +161,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
           )}
           {selectedRange !== 'all' && (
             <span className="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">
-              📏 {selectedRange === 'melee' ? 'Corpo a Corpo' : selectedRange === 'short' ? 'Curto' : selectedRange === 'medium' ? 'Médio' : 'Longo'}
+              📏 {selectedRange === 'melee' ? t('filter.melee').split(' (')[0] : selectedRange === 'short' ? t('filter.short').split(' (')[0] : selectedRange === 'medium' ? t('filter.mediumRange').split(' (')[0] : t('filter.long').split(' (')[0]}
             </span>
           )}
           <button
@@ -172,7 +174,7 @@ function FilterBar({ onFilterChange, allTags, allResourceTypes }) {
             }}
             className="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm hover:bg-red-500/30 transition-colors flex items-center"
           >
-            ❌ Limpar todos
+            ❌ {t('filter.clearAll')}
           </button>
         </div>
       )}

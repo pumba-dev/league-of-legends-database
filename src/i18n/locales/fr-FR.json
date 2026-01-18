@@ -1,0 +1,97 @@
+{
+  "header": {
+    "title": "Champion Dex",
+    "subtitle": "Encyclopédie de League of Legends"
+  },
+  "footer": {
+    "developed": "Développé avec React & Tailwind CSS",
+    "disclaimer": "League of Legends et tous les éléments associés sont la propriété de Riot Games"
+  },
+  "home": {
+    "title": "Champion Dex",
+    "subtitle": "Explorez tous les {{count}} champions de League of Legends. Découvrez les capacités, les statistiques et les histoires épiques.",
+    "showing": "Affichage de <1>{{displayed}}</1> sur <3>{{total}}</3> champions",
+    "loadingMore": "Chargement de plus de champions...",
+    "endOfList": "Vous avez atteint la fin de la liste ! 🎮",
+    "noResults": "Aucun champion trouvé",
+    "tryAdjusting": "Essayez d'ajuster les filtres de recherche"
+  },
+  "filter": {
+    "search": "Rechercher un champion par nom ou titre...",
+    "activeFilters": "Filtres actifs :",
+    "clearAll": "Tout effacer",
+    "role": "Rôle / Classe",
+    "allRoles": "Tous les Rôles",
+    "difficulty": "Difficulté",
+    "allDifficulties": "Toutes",
+    "easy": "Facile (1-3)",
+    "medium": "Moyen (4-6)",
+    "hard": "Difficile (7-10)",
+    "resource": "Type de Ressource",
+    "allResources": "Toutes",
+    "range": "Portée d'Attaque",
+    "allRanges": "Toutes",
+    "melee": "Corps à Corps (< 200)",
+    "short": "Courte (200-400)",
+    "mediumRange": "Moyenne (400-550)",
+    "long": "Longue (> 550)"
+  },
+  "stats": {
+    "totalChampions": "Total de Champions",
+    "avgDifficulty": "Difficulté Moyenne",
+    "mostCommonRole": "Rôle le Plus Commun",
+    "highestHP": "HP de Base le Plus Élevé",
+    "champions": "champions",
+    "hp": "HP"
+  },
+  "champion": {
+    "loading": "Chargement du champion...",
+    "notFound": "Champion non trouvé",
+    "backToList": "Retour à la liste",
+    "back": "Retour",
+    "lore": "Histoire",
+    "baseStats": "Statistiques de Base",
+    "detailedStats": "Statistiques Détaillées",
+    "passive": "Passive",
+    "abilities": "Capacités",
+    "skins": "Apparences",
+    "attributes": "Attributs",
+    "quickInfo": "Informations Rapides",
+    "resource": "Ressource",
+    "difficultyLevel": "Difficulté",
+    "easy": "Facile",
+    "medium": "Moyen",
+    "hard": "Difficile",
+    "attack": "Attaque",
+    "defense": "Défense",
+    "magic": "Magie",
+    "difficulty": "Difficulté",
+    "version": "Version",
+    "id": "ID"
+  },
+  "tips": {
+    "howToPlay": "Comment Jouer",
+    "howToCounter": "Comment Contrer"
+  },
+  "statNames": {
+    "hp": "HP",
+    "mana": "Mana",
+    "armor": "Armure",
+    "magicResist": "Résistance Magique",
+    "attackDamage": "Dégâts d'Attaque",
+    "attackSpeed": "Vitesse d'Attaque",
+    "moveSpeed": "Vitesse de Déplacement",
+    "attackRange": "Portée d'Attaque",
+    "hpRegen": "Régénération HP",
+    "manaRegen": "Régénération Mana"
+  },
+  "language": {
+    "select": "Langue",
+    "portuguese": "Português",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "chinese": "中文"
+  }
+}

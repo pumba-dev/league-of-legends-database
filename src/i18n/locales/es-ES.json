@@ -1,0 +1,97 @@
+{
+  "header": {
+    "title": "Champion Dex",
+    "subtitle": "Enciclopedia de League of Legends"
+  },
+  "footer": {
+    "developed": "Desarrollado con React & Tailwind CSS",
+    "disclaimer": "League of Legends y todos los recursos relacionados son propiedad de Riot Games"
+  },
+  "home": {
+    "title": "Champion Dex",
+    "subtitle": "Explora todos los {{count}} campeones de League of Legends. Descubre habilidades, estadísticas e historias épicas.",
+    "showing": "Mostrando <1>{{displayed}}</1> de <3>{{total}}</3> campeones",
+    "loadingMore": "Cargando más campeones...",
+    "endOfList": "¡Has llegado al final de la lista! 🎮",
+    "noResults": "No se encontraron campeones",
+    "tryAdjusting": "Intenta ajustar los filtros de búsqueda"
+  },
+  "filter": {
+    "search": "Buscar campeón por nombre o título...",
+    "activeFilters": "Filtros activos:",
+    "clearAll": "Limpiar todo",
+    "role": "Rol / Clase",
+    "allRoles": "Todos los Roles",
+    "difficulty": "Dificultad",
+    "allDifficulties": "Todas",
+    "easy": "Fácil (1-3)",
+    "medium": "Medio (4-6)",
+    "hard": "Difícil (7-10)",
+    "resource": "Tipo de Recurso",
+    "allResources": "Todos",
+    "range": "Rango de Ataque",
+    "allRanges": "Todos",
+    "melee": "Cuerpo a Cuerpo (< 200)",
+    "short": "Corto (200-400)",
+    "mediumRange": "Medio (400-550)",
+    "long": "Largo (> 550)"
+  },
+  "stats": {
+    "totalChampions": "Total de Campeones",
+    "avgDifficulty": "Dificultad Media",
+    "mostCommonRole": "Rol Más Común",
+    "highestHP": "Mayor HP Base",
+    "champions": "campeones",
+    "hp": "HP"
+  },
+  "champion": {
+    "loading": "Cargando campeón...",
+    "notFound": "Campeón no encontrado",
+    "backToList": "Volver a la lista",
+    "back": "Volver",
+    "lore": "Historia",
+    "baseStats": "Estadísticas Base",
+    "detailedStats": "Estadísticas Detalladas",
+    "passive": "Pasiva",
+    "abilities": "Habilidades",
+    "skins": "Aspectos",
+    "attributes": "Atributos",
+    "quickInfo": "Información Rápida",
+    "resource": "Recurso",
+    "difficultyLevel": "Dificultad",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil",
+    "attack": "Ataque",
+    "defense": "Defensa",
+    "magic": "Magia",
+    "difficulty": "Dificultad",
+    "version": "Versión",
+    "id": "ID"
+  },
+  "tips": {
+    "howToPlay": "Cómo Jugar",
+    "howToCounter": "Cómo Contrarrestar"
+  },
+  "statNames": {
+    "hp": "HP",
+    "mana": "Maná",
+    "armor": "Armadura",
+    "magicResist": "Resistencia Mágica",
+    "attackDamage": "Daño de Ataque",
+    "attackSpeed": "Velocidad de Ataque",
+    "moveSpeed": "Velocidad de Movimiento",
+    "attackRange": "Rango de Ataque",
+    "hpRegen": "Regeneración HP",
+    "manaRegen": "Regeneración Maná"
+  },
+  "language": {
+    "select": "Idioma",
+    "portuguese": "Português",
+    "english": "English",
+    "spanish": "Español",
+    "french": "Français",
+    "italian": "Italiano",
+    "chinese": "中文"
+  }
+}
