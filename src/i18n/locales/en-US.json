@@ -7,6 +7,10 @@
     "developed": "Developed with React & Tailwind CSS",
     "disclaimer": "League of Legends and all related assets are property of Riot Games"
   },
+  "nav": {
+    "champions": "Champions",
+    "items": "Items"
+  },
   "home": {
     "title": "Champion Dex",
     "subtitle": "Explore all {{count}} League of Legends champions. Discover abilities, statistics, and epic stories.",
@@ -90,6 +94,167 @@
     "Rage": "Rage",
     "Shield": "Shield",
     "None": "None"
+  },
+  "items": {
+    "title": "League of Legends Items",
+    "subtitle": "Explore all items available in the game",
+    "totalItems": "Total Items",
+    "avgPrice": "Average Price",
+    "cheapest": "Cheapest",
+    "mostExpensive": "Most Expensive",
+    "search": "Search items...",
+    "sortBy": "Sort by",
+    "nameAsc": "Name (A-Z)",
+    "nameDesc": "Name (Z-A)",
+    "priceAsc": "Price (Lowest)",
+    "priceDesc": "Price (Highest)",
+    "adAsc": "Attack Damage (Lowest)",
+    "adDesc": "Attack Damage (Highest)",
+    "apAsc": "Ability Power (Lowest)",
+    "apDesc": "Ability Power (Highest)",
+    "armorAsc": "Armor (Lowest)",
+    "armorDesc": "Armor (Highest)",
+    "mrAsc": "Magic Resist (Lowest)",
+    "mrDesc": "Magic Resist (Highest)",
+    "healthAsc": "Health (Lowest)",
+    "healthDesc": "Health (Highest)",
+    "manaAsc": "Mana (Lowest)",
+    "manaDesc": "Mana (Highest)",
+    "asAsc": "Attack Speed (Lowest)",
+    "asDesc": "Attack Speed (Highest)",
+    "critAsc": "Critical Strike (Lowest)",
+    "critDesc": "Critical Strike (Highest)",
+    "lifestealAsc": "Life Steal (Lowest)",
+    "lifestealDesc": "Life Steal (Highest)",
+    "movespeedAsc": "Movement Speed (Lowest)",
+    "movespeedDesc": "Movement Speed (Highest)",
+    "category": "Category",
+    "allCategories": "All",
+    "priceRange": "Price Range",
+    "allPrices": "All",
+    "cheap": "< 1000G",
+    "medium": "1000-2500G",
+    "expensive": "> 2500G",
+    "filterByStats": "Filter by Stats",
+    "allStats": "All",
+    "hasAD": "Attack Damage",
+    "hasAP": "Ability Power",
+    "hasArmor": "Armor",
+    "hasMR": "Magic Resist",
+    "hasHealth": "Health",
+    "hasMana": "Mana",
+    "hasAS": "Attack Speed",
+    "hasCrit": "Critical Strike",
+    "hasLifeSteal": "Life Steal",
+    "map": "Map",
+    "allMaps": "All",
+    "noResults": "No items found",
+    "plaintext": "Description",
+    "viewPlaintext": "View full description",
+    "passive": "(Passive)",
+    "active": "(Active)",
+    "goldUnit": "G",
+    "buyPrice": "Buy",
+    "sellPrice": "Sell",
+    "priceDifference": "Difference",
+    "noStats": "This item has no additional attributes.",
+    "noStatsDescription": "Its effects are based on abilities or passives.",
+    "dailyCuriosity": "Daily Curiosity",
+    "curiosities": {
+      "1": {
+        "title": "Oldest Item",
+        "desc": "The first item in League of Legends was Doran's Blade, introduced at the game's launch in 2009."
+      },
+      "2": {
+        "title": "Most Expensive Item Ever",
+        "desc": "The most expensive item in history was Trinity Force with 3733 gold, but it has been rebalanced many times."
+      },
+      "3": {
+        "title": "Most Popular Item",
+        "desc": "Infinity Edge is one of the most purchased items in ranked, giving 80% critical strike chance."
+      },
+      "4": {
+        "title": "Most Unique Item",
+        "desc": "Zhonya's Hourglass allows you to become intangible for 2.5 seconds, one of the few items with this effect."
+      },
+      "5": {
+        "title": "Most Powerful Item",
+        "desc": "Rabadon's Deathcap gives the highest AP in the game with 120 ability power."
+      },
+      "6": {
+        "title": "Cheapest Item",
+        "desc": "The cheapest items cost only 400 gold, like Amplifying Tome or Cloth Armor."
+      },
+      "7": {
+        "title": "Most Sold Item",
+        "desc": "Health Potion is the most sold item in all matches, costing only 50 gold."
+      },
+      "8": {
+        "title": "Rarest Item",
+        "desc": "Mythic items are the rarest and most powerful, like Kraken Slayer or Galeforce."
+      },
+      "9": {
+        "title": "Oldest Active Item",
+        "desc": "Boots of Speed has existed since the beta and is still used in all builds."
+      },
+      "10": {
+        "title": "Most Expensive Current Item",
+        "desc": "Currently, mythic items cost 3300 gold, being the most expensive available."
+      }
+    }
+  },
+  "maps": {
+    "11": "Summoner's Rift",
+    "12": "ARAM",
+    "21": "Nexus Blitz",
+    "30": "Arena",
+    "33": "Swiftplay"
+  },
+  "itemTags": {
+    "Damage": "Damage",
+    "CriticalStrike": "Critical Strike",
+    "AttackSpeed": "Attack Speed",
+    "OnHit": "On Hit",
+    "ArmorPenetration": "Armor Penetration",
+    "SpellDamage": "Spell Damage",
+    "Mana": "Mana",
+    "ManaRegen": "Mana Regen",
+    "CooldownReduction": "Cooldown Reduction",
+    "MagicPenetration": "Magic Penetration",
+    "Health": "Health",
+    "HealthRegen": "Health Regen",
+    "Armor": "Armor",
+    "SpellBlock": "Magic Resist",
+    "Aura": "Aura",
+    "Boots": "Boots",
+    "Jungle": "Jungle",
+    "Lane": "Lane",
+    "Trinket": "Trinket",
+    "GoldPer": "Gold",
+    "Vision": "Vision",
+    "Consumable": "Consumable",
+    "Active": "Active",
+    "NonbootsMovement": "Movement Speed",
+    "LifeSteal": "Life Steal",
+    "SpellVamp": "Spell Vamp",
+    "Slow": "Slow",
+    "Stealth": "Stealth",
+    "AbilityHaste": "Ability Haste"
+  },
+  "itemStats": {
+    "FlatPhysicalDamageMod": "Attack Damage",
+    "FlatMagicDamageMod": "Ability Power",
+    "FlatArmorMod": "Armor",
+    "FlatSpellBlockMod": "Magic Resist",
+    "FlatHPPoolMod": "Health",
+    "FlatMPPoolMod": "Mana",
+    "PercentAttackSpeedMod": "Attack Speed",
+    "FlatCritChanceMod": "Critical Strike Chance",
+    "PercentLifeStealMod": "Life Steal",
+    "FlatMovementSpeedMod": "Movement Speed",
+    "PercentMovementSpeedMod": "% Movement Speed",
+    "FlatHPRegenMod": "Health Regen",
+    "FlatMPRegenMod": "Mana Regen"
   },
   "champion": {
     "loading": "Loading champion...",

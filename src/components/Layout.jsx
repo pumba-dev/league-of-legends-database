@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop'
 import LanguageSelector from './LanguageSelector'
 import { useTranslation } from 'react-i18next'
@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next'
  */
 function Layout({ children }) {
   const { t } = useTranslation()
+  const location = useLocation()
   
   return (
     <div className="min-h-screen bg-lol-dark">
@@ -28,9 +29,59 @@ function Layout({ children }) {
               </div>
             </Link>
             
-            {/* Language Selector */}
-            <LanguageSelector />
+            <div className="flex items-center space-x-6">
+              {/* Navigation */}
+              <nav className="hidden md:flex items-center space-x-4">
+                <Link
+                  to="/"
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    location.pathname === '/' 
+                      ? 'bg-lol-gold/20 text-lol-gold' 
+                      : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+                  }`}
+                >
+                  {t('nav.champions', 'Campeões')}
+                </Link>
+                <Link
+                  to="/items"
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    location.pathname === '/items' 
+                      ? 'bg-lol-gold/20 text-lol-gold' 
+                      : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+                  }`}
+                >
+                  {t('nav.items', 'Itens')}
+                </Link>
+              </nav>
+              
+              {/* Language Selector */}
+              <LanguageSelector />
+            </div>
           </div>
+
+          {/* Mobile Navigation */}
+          <nav className="md:hidden flex items-center space-x-2 mt-4">
+            <Link
+              to="/"
+              className={`flex-1 text-center px-4 py-2 rounded-lg transition-colors ${
+                location.pathname === '/' 
+                  ? 'bg-lol-gold/20 text-lol-gold' 
+                  : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+              }`}
+            >
+              {t('nav.champions', 'Campeões')}
+            </Link>
+            <Link
+              to="/items"
+              className={`flex-1 text-center px-4 py-2 rounded-lg transition-colors ${
+                location.pathname === '/items' 
+                  ? 'bg-lol-gold/20 text-lol-gold' 
+                  : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+              }`}
+            >
+              {t('nav.items', 'Itens')}
+            </Link>
+          </nav>
         </div>
       </header>
 

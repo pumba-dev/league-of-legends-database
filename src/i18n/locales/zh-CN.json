@@ -7,6 +7,10 @@
     "developed": "使用 React & Tailwind CSS 开发",
     "disclaimer": "英雄联盟及所有相关资源均为 Riot Games 所有"
   },
+  "nav": {
+    "champions": "英雄",
+    "items": "装备"
+  },
   "home": {
     "title": "Champion Dex",
     "subtitle": "探索英雄联盟所有 {{count}} 个英雄。发现技能、数据和史诗般的故事。",
@@ -90,6 +94,167 @@
     "Rage": "狂怒",
     "Shield": "护盾",
     "None": "无"
+  },
+  "items": {
+    "title": "英雄联盟装备",
+    "subtitle": "探索游戏中所有可用的装备",
+    "totalItems": "装备总数",
+    "avgPrice": "平均价格",
+    "cheapest": "最便宜",
+    "mostExpensive": "最昂贵",
+    "search": "搜索装备...",
+    "sortBy": "排序",
+    "nameAsc": "名称 (A-Z)",
+    "nameDesc": "名称 (Z-A)",
+    "priceAsc": "价格 (最低)",
+    "priceDesc": "价格 (最高)",
+    "adAsc": "攻击力 (最低)",
+    "adDesc": "攻击力 (最高)",
+    "apAsc": "法术强度 (最低)",
+    "apDesc": "法术强度 (最高)",
+    "armorAsc": "护甲 (最低)",
+    "armorDesc": "护甲 (最高)",
+    "mrAsc": "魔抗 (最低)",
+    "mrDesc": "魔抗 (最高)",
+    "healthAsc": "生命值 (最低)",
+    "healthDesc": "生命值 (最高)",
+    "manaAsc": "法力值 (最低)",
+    "manaDesc": "法力值 (最高)",
+    "asAsc": "攻速 (最低)",
+    "asDesc": "攻速 (最高)",
+    "critAsc": "暴击 (最低)",
+    "critDesc": "暴击 (最高)",
+    "lifestealAsc": "生命偷取 (最低)",
+    "lifestealDesc": "生命偷取 (最高)",
+    "movespeedAsc": "移速 (最低)",
+    "movespeedDesc": "移速 (最高)",
+    "category": "类别",
+    "allCategories": "全部",
+    "priceRange": "价格范围",
+    "allPrices": "全部",
+    "cheap": "< 1000G",
+    "medium": "1000-2500G",
+    "expensive": "> 2500G",
+    "filterByStats": "按属性筛选",
+    "allStats": "全部",
+    "hasAD": "攻击力",
+    "hasAP": "法术强度",
+    "hasArmor": "护甲",
+    "hasMR": "魔抗",
+    "hasHealth": "生命值",
+    "hasMana": "法力值",
+    "hasAS": "攻速",
+    "hasCrit": "暴击几率",
+    "hasLifeSteal": "吸血",
+    "map": "地图",
+    "allMaps": "全部",
+    "noResults": "未找到装备",
+    "plaintext": "描述",
+    "viewPlaintext": "查看完整描述",
+    "passive": "(被动)",
+    "active": "(主动)",
+    "goldUnit": "金",
+    "buyPrice": "购买",
+    "sellPrice": "出售",
+    "priceDifference": "差价",
+    "noStats": "此装备没有额外属性。",
+    "noStatsDescription": "其效果基于技能或被动。",
+    "dailyCuriosity": "每日趣闻",
+    "curiosities": {
+      "1": {
+        "title": "最古老的装备",
+        "desc": "英雄联盟的第一个装备是多兰之刃，于2009年游戏发布时引入。"
+      },
+      "2": {
+        "title": "历史最贵装备",
+        "desc": "历史上最贵的装备是三相之力，价值3733金币，但已被多次重做平衡。"
+      },
+      "3": {
+        "title": "最受欢迎装备",
+        "desc": "无尽之刃是排位赛中最常购买的装备之一，提供80%暴击几率。"
+      },
+      "4": {
+        "title": "最独特的装备",
+        "desc": "中娅沙漏可以让你无敌2.5秒，是少数具有此效果的装备之一。"
+      },
+      "5": {
+        "title": "最强大的装备",
+        "desc": "拉巴顿的死亡之帽提供游戏中最高的法术强度，120点。"
+      },
+      "6": {
+        "title": "最便宜的装备",
+        "desc": "最便宜的装备只需400金币，如增幅典籍或布甲。"
+      },
+      "7": {
+        "title": "最畅销装备",
+        "desc": "生命药水是所有比赛中最畅销的装备，仅需50金币。"
+      },
+      "8": {
+        "title": "最稀有的装备",
+        "desc": "神话装备是最稀有和最强大的，如海妖杀手或疾风之力。"
+      },
+      "9": {
+        "title": "最古老的活跃装备",
+        "desc": "速度之靴从测试版开始就存在，仍用于所有攻略。"
+      },
+      "10": {
+        "title": "当前最贵装备",
+        "desc": "目前，神话装备价值3300金币，是最贵的可用装备。"
+      }
+    }
+  },
+  "maps": {
+    "11": "召唤师峡谷",
+    "12": "ARAM",
+    "21": "极限闪击",
+    "30": "斗魂竞技场",
+    "33": "Swiftplay"
+  },
+  "itemTags": {
+    "Damage": "伤害",
+    "CriticalStrike": "暴击",
+    "AttackSpeed": "攻速",
+    "OnHit": "命中时",
+    "ArmorPenetration": "护甲穿透",
+    "SpellDamage": "法术伤害",
+    "Mana": "法力",
+    "ManaRegen": "法力回复",
+    "CooldownReduction": "冷却缩减",
+    "MagicPenetration": "法术穿透",
+    "Health": "生命值",
+    "HealthRegen": "生命回复",
+    "Armor": "护甲",
+    "SpellBlock": "魔抗",
+    "Aura": "光环",
+    "Boots": "鞋子",
+    "Jungle": "打野",
+    "Lane": "对线",
+    "Trinket": "饰品",
+    "GoldPer": "金币",
+    "Vision": "视野",
+    "Consumable": "消耗品",
+    "Active": "主动",
+    "NonbootsMovement": "移速",
+    "LifeSteal": "吸血",
+    "SpellVamp": "法术吸血",
+    "Slow": "减速",
+    "Stealth": "隐身",
+    "AbilityHaste": "技能急速"
+  },
+  "itemStats": {
+    "FlatPhysicalDamageMod": "攻击力",
+    "FlatMagicDamageMod": "法术强度",
+    "FlatArmorMod": "护甲",
+    "FlatSpellBlockMod": "魔抗",
+    "FlatHPPoolMod": "生命值",
+    "FlatMPPoolMod": "法力值",
+    "PercentAttackSpeedMod": "攻速",
+    "FlatCritChanceMod": "暴击几率",
+    "PercentLifeStealMod": "吸血",
+    "FlatMovementSpeedMod": "移速",
+    "PercentMovementSpeedMod": "% 移速",
+    "FlatHPRegenMod": "生命回复",
+    "FlatMPRegenMod": "法力回复"
   },
   "champion": {
     "loading": "加载英雄中...",

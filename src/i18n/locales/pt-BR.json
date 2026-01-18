@@ -7,6 +7,10 @@
     "developed": "Desenvolvido com React & Tailwind CSS",
     "disclaimer": "League of Legends e todos os assets relacionados são propriedade da Riot Games"
   },
+  "nav": {
+    "champions": "Campeões",
+    "items": "Itens"
+  },
   "home": {
     "title": "Champion Dex",
     "subtitle": "Explore todos os {{count}} campeões do League of Legends. Descubra habilidades, estatísticas e histórias épicas.",
@@ -90,6 +94,167 @@
     "Rage": "Raiva",
     "Shield": "Escudo",
     "None": "Nenhum"
+  },
+  "items": {
+    "title": "Itens do League of Legends",
+    "subtitle": "Explore todos os itens disponíveis no jogo",
+    "totalItems": "Total de Itens",
+    "avgPrice": "Preço Médio",
+    "cheapest": "Mais Barato",
+    "mostExpensive": "Mais Caro",
+    "search": "Buscar itens...",
+    "sortBy": "Ordenar",
+    "nameAsc": "Nome (A-Z)",
+    "nameDesc": "Nome (Z-A)",
+    "priceAsc": "Preço (Menor)",
+    "priceDesc": "Preço (Maior)",
+    "adAsc": "Dano de Ataque (Menor)",
+    "adDesc": "Dano de Ataque (Maior)",
+    "apAsc": "Poder de Habilidade (Menor)",
+    "apDesc": "Poder de Habilidade (Maior)",
+    "armorAsc": "Armadura (Menor)",
+    "armorDesc": "Armadura (Maior)",
+    "mrAsc": "Resist. Mágica (Menor)",
+    "mrDesc": "Resist. Mágica (Maior)",
+    "healthAsc": "Vida (Menor)",
+    "healthDesc": "Vida (Maior)",
+    "manaAsc": "Mana (Menor)",
+    "manaDesc": "Mana (Maior)",
+    "asAsc": "Vel. Ataque (Menor)",
+    "asDesc": "Vel. Ataque (Maior)",
+    "critAsc": "Crítico (Menor)",
+    "critDesc": "Crítico (Maior)",
+    "lifestealAsc": "Roubo Vida (Menor)",
+    "lifestealDesc": "Roubo Vida (Maior)",
+    "movespeedAsc": "Vel. Mov. (Menor)",
+    "movespeedDesc": "Vel. Mov. (Maior)",
+    "category": "Categoria",
+    "allCategories": "Todas",
+    "priceRange": "Faixa de Preço",
+    "allPrices": "Todos",
+    "cheap": "< 1000G",
+    "medium": "1000-2500G",
+    "expensive": "> 2500G",
+    "filterByStats": "Filtrar por Stats",
+    "allStats": "Todos",
+    "hasAD": "Dano de Ataque",
+    "hasAP": "Poder de Habilidade",
+    "hasArmor": "Armadura",
+    "hasMR": "Res. Mágica",
+    "hasHealth": "Vida",
+    "hasMana": "Mana",
+    "hasAS": "Velocidade de Ataque",
+    "hasCrit": "Chance de Crítico",
+    "hasLifeSteal": "Roubo de Vida",
+    "map": "Mapa",
+    "allMaps": "Todos",
+    "noResults": "Nenhum item encontrado",
+    "plaintext": "Descrição",
+    "viewPlaintext": "Ver descrição completa",
+    "passive": "(Passiva)",
+    "active": "(Ativa)",
+    "goldUnit": "G",
+    "buyPrice": "Compra",
+    "sellPrice": "Venda",
+    "priceDifference": "Diferença",
+    "noStats": "Este item não possui atributos adicionais.",
+    "noStatsDescription": "Seus efeitos são baseados em habilidades ou passivas.",
+    "dailyCuriosity": "Curiosidade do Dia",
+    "curiosities": {
+      "1": {
+        "title": "Item Mais Antigo",
+        "desc": "O primeiro item do League of Legends foi a Lâmina de Doran, introduzida no lançamento do jogo em 2009."
+      },
+      "2": {
+        "title": "Item Mais Caro da História",
+        "desc": "O item mais caro da história foi a Força da Trindade com 3733 de gold, mas foi rebalanceado várias vezes."
+      },
+      "3": {
+        "title": "Item Mais Popular",
+        "desc": "O Gume do Infinito é um dos itens mais comprados em ranked, dando 80% de chance de crítico."
+      },
+      "4": {
+        "title": "Item Mais Único",
+        "desc": "A Ampulheta de Zhonya permite ficar intangível por 2.5 segundos, um dos poucos itens com esse efeito."
+      },
+      "5": {
+        "title": "Item Mais Poderoso",
+        "desc": "O Capuz da Morte de Rabadon dá o maior AP do jogo com 120 de poder de habilidade."
+      },
+      "6": {
+        "title": "Item Mais Barato",
+        "desc": "Os itens mais baratos custam apenas 400 gold, como Tomo Amplificador ou Armadura de Pano."
+      },
+      "7": {
+        "title": "Item Mais Vendido",
+        "desc": "A Poção de Vida é o item mais vendido em todas as partidas, custando apenas 50 gold."
+      },
+      "8": {
+        "title": "Item Mais Raro",
+        "desc": "Itens míticos são os mais raros e poderosos, como Mata-Cráquens ou Força da Rajada."
+      },
+      "9": {
+        "title": "Item Mais Antigo Ativo",
+        "desc": "As Botas de Velocidade existem desde o beta e ainda são usadas em todas as builds."
+      },
+      "10": {
+        "title": "Item Mais Caro Atual",
+        "desc": "Atualmente, itens míticos custam 3300 gold, sendo os mais caros disponíveis."
+      }
+    }
+  },
+  "maps": {
+    "11": "Summoner's Rift",
+    "12": "ARAM",
+    "21": "Nexus Blitz",
+    "30": "Arena",
+    "33": "Swiftplay"
+  },
+  "itemTags": {
+    "Damage": "Dano",
+    "CriticalStrike": "Crítico",
+    "AttackSpeed": "Vel. de Ataque",
+    "OnHit": "Ao Acertar",
+    "ArmorPenetration": "Pen. de Armadura",
+    "SpellDamage": "Dano Mágico",
+    "Mana": "Mana",
+    "ManaRegen": "Regen. de Mana",
+    "CooldownReduction": "Red. de Recarga",
+    "MagicPenetration": "Pen. Mágica",
+    "Health": "Vida",
+    "HealthRegen": "Regen. de Vida",
+    "Armor": "Armadura",
+    "SpellBlock": "Res. Mágica",
+    "Aura": "Aura",
+    "Boots": "Botas",
+    "Jungle": "Caçador",
+    "Lane": "Rota",
+    "Trinket": "Talismã",
+    "GoldPer": "Ouro",
+    "Vision": "Visão",
+    "Consumable": "Consumível",
+    "Active": "Ativa",
+    "NonbootsMovement": "Vel. de Movimento",
+    "LifeSteal": "Roubo de Vida",
+    "SpellVamp": "Vampirismo Mágico",
+    "Slow": "Lentidão",
+    "Stealth": "Furtividade",
+    "AbilityHaste": "Aceler. de Habilidade"
+  },
+  "itemStats": {
+    "FlatPhysicalDamageMod": "Dano de Ataque",
+    "FlatMagicDamageMod": "Poder de Habilidade",
+    "FlatArmorMod": "Armadura",
+    "FlatSpellBlockMod": "Resistência Mágica",
+    "FlatHPPoolMod": "Vida",
+    "FlatMPPoolMod": "Mana",
+    "PercentAttackSpeedMod": "Vel. de Ataque",
+    "FlatCritChanceMod": "Chance de Crítico",
+    "PercentLifeStealMod": "Roubo de Vida",
+    "FlatMovementSpeedMod": "Vel. de Movimento",
+    "PercentMovementSpeedMod": "% Vel. de Movimento",
+    "FlatHPRegenMod": "Regen. de Vida",
+    "FlatMPRegenMod": "Regen. de Mana"
   },
   "champion": {
     "loading": "Carregando campeão...",

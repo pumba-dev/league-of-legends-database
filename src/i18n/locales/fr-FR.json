@@ -7,6 +7,10 @@
     "developed": "Développé avec React & Tailwind CSS",
     "disclaimer": "League of Legends et tous les éléments associés sont la propriété de Riot Games"
   },
+  "nav": {
+    "champions": "Champions",
+    "items": "Objets"
+  },
   "home": {
     "title": "Champion Dex",
     "subtitle": "Explorez tous les {{count}} champions de League of Legends. Découvrez les capacités, les statistiques et les histoires épiques.",
@@ -90,6 +94,167 @@
     "Rage": "Rage",
     "Shield": "Bouclier",
     "None": "Aucun"
+  },
+  "items": {
+    "title": "Objets de League of Legends",
+    "subtitle": "Explorez tous les objets disponibles dans le jeu",
+    "totalItems": "Total d'Objets",
+    "avgPrice": "Prix Moyen",
+    "cheapest": "Moins Cher",
+    "mostExpensive": "Plus Cher",
+    "search": "Rechercher des objets...",
+    "sortBy": "Trier",
+    "nameAsc": "Nom (A-Z)",
+    "nameDesc": "Nom (Z-A)",
+    "priceAsc": "Prix (Plus Bas)",
+    "priceDesc": "Prix (Plus Élevé)",
+    "adAsc": "Dégâts d'Attaque (Plus Bas)",
+    "adDesc": "Dégâts d'Attaque (Plus Élevé)",
+    "apAsc": "Puissance (Plus Bas)",
+    "apDesc": "Puissance (Plus Élevé)",
+    "armorAsc": "Armure (Plus Bas)",
+    "armorDesc": "Armure (Plus Élevé)",
+    "mrAsc": "Résist. Magique (Plus Bas)",
+    "mrDesc": "Résist. Magique (Plus Élevé)",
+    "healthAsc": "Vie (Plus Bas)",
+    "healthDesc": "Vie (Plus Élevé)",
+    "manaAsc": "Mana (Plus Bas)",
+    "manaDesc": "Mana (Plus Élevé)",
+    "asAsc": "Vit. Attaque (Plus Bas)",
+    "asDesc": "Vit. Attaque (Plus Élevé)",
+    "critAsc": "Critique (Plus Bas)",
+    "critDesc": "Critique (Plus Élevé)",
+    "lifestealAsc": "Vol Vie (Plus Bas)",
+    "lifestealDesc": "Vol Vie (Plus Élevé)",
+    "movespeedAsc": "Vit. Déplacement (Plus Bas)",
+    "movespeedDesc": "Vit. Déplacement (Plus Élevé)",
+    "category": "Catégorie",
+    "allCategories": "Toutes",
+    "priceRange": "Fourchette de Prix",
+    "allPrices": "Tous",
+    "cheap": "< 1000G",
+    "medium": "1000-2500G",
+    "expensive": "> 2500G",
+    "filterByStats": "Filtrer par Stats",
+    "allStats": "Tous",
+    "hasAD": "Dégâts d'Attaque",
+    "hasAP": "Puissance",
+    "hasArmor": "Armure",
+    "hasMR": "Résistance Magique",
+    "hasHealth": "Santé",
+    "hasMana": "Mana",
+    "hasAS": "Vitesse d'Attaque",
+    "hasCrit": "Chance de Critique",
+    "hasLifeSteal": "Vol de Vie",
+    "map": "Carte",
+    "allMaps": "Toutes",
+    "noResults": "Aucun objet trouvé",
+    "plaintext": "Description",
+    "viewPlaintext": "Voir la description complète",
+    "passive": "(Passive)",
+    "active": "(Active)",
+    "goldUnit": "G",
+    "buyPrice": "Achat",
+    "sellPrice": "Vente",
+    "priceDifference": "Différence",
+    "noStats": "Cet objet n'a pas d'attributs supplémentaires.",
+    "noStatsDescription": "Ses effets sont basés sur les compétences ou les passifs.",
+    "dailyCuriosity": "Curiosité du Jour",
+    "curiosities": {
+      "1": {
+        "title": "Objet le Plus Ancien",
+        "desc": "Le premier objet de League of Legends était la Lame de Doran, introduite au lancement du jeu en 2009."
+      },
+      "2": {
+        "title": "Objet le Plus Cher de l'Histoire",
+        "desc": "L'objet le plus cher de l'histoire était la Force de la Trinité avec 3733 pièces d'or, mais il a été rééquilibré plusieurs fois."
+      },
+      "3": {
+        "title": "Objet le Plus Populaire",
+        "desc": "Le Tranchant de l'Infini est l'un des objets les plus achetés en ranked, donnant 80% de chances de coup critique."
+      },
+      "4": {
+        "title": "Objet le Plus Unique",
+        "desc": "Le Sablier de Zhonya permet de devenir intangible pendant 2.5 secondes, l'un des rares objets avec cet effet."
+      },
+      "5": {
+        "title": "Objet le Plus Puissant",
+        "desc": "Le Coiffe de Rabadon donne le plus haut AP du jeu avec 120 de puissance d'aptitude."
+      },
+      "6": {
+        "title": "Objet le Moins Cher",
+        "desc": "Les objets les moins chers coûtent seulement 400 pièces d'or, comme Tome Amplificateur ou Armure de Tissu."
+      },
+      "7": {
+        "title": "Objet le Plus Vendu",
+        "desc": "La Potion de Vie est l'objet le plus vendu dans toutes les parties, coûtant seulement 50 pièces d'or."
+      },
+      "8": {
+        "title": "Objet le Plus Rare",
+        "desc": "Les objets mythiques sont les plus rares et les plus puissants, comme Tueur de Krakens ou Force de la Tempête."
+      },
+      "9": {
+        "title": "Objet le Plus Ancien Actif",
+        "desc": "Les Bottes de Vitesse existent depuis le bêta et sont encore utilisées dans toutes les compositions."
+      },
+      "10": {
+        "title": "Objet le Plus Cher Actuel",
+        "desc": "Actuellement, les objets mythiques coûtent 3300 pièces d'or, étant les plus chers disponibles."
+      }
+    }
+  },
+  "maps": {
+    "11": "Faille de l'Invocateur",
+    "12": "ARAM",
+    "21": "Nexus Blitz",
+    "30": "Arène",
+    "33": "Swiftplay"
+  },
+  "itemTags": {
+    "Damage": "Dégâts",
+    "CriticalStrike": "Critique",
+    "AttackSpeed": "Vitesse d'Attaque",
+    "OnHit": "Au Toucher",
+    "ArmorPenetration": "Pénétration d'Armure",
+    "SpellDamage": "Dégâts Magiques",
+    "Mana": "Mana",
+    "ManaRegen": "Régén. de Mana",
+    "CooldownReduction": "Réduction de Temps de Recharge",
+    "MagicPenetration": "Pénétration Magique",
+    "Health": "Santé",
+    "HealthRegen": "Régén. de Santé",
+    "Armor": "Armure",
+    "SpellBlock": "Résistance Magique",
+    "Aura": "Aura",
+    "Boots": "Bottes",
+    "Jungle": "Jungle",
+    "Lane": "Voie",
+    "Trinket": "Bijou",
+    "GoldPer": "Or",
+    "Vision": "Vision",
+    "Consumable": "Consommable",
+    "Active": "Actif",
+    "NonbootsMovement": "Vitesse de Déplacement",
+    "LifeSteal": "Vol de Vie",
+    "SpellVamp": "Vampirisme Magique",
+    "Slow": "Ralentissement",
+    "Stealth": "Furtivité",
+    "AbilityHaste": "Hâte"
+  },
+  "itemStats": {
+    "FlatPhysicalDamageMod": "Dégâts d'Attaque",
+    "FlatMagicDamageMod": "Puissance",
+    "FlatArmorMod": "Armure",
+    "FlatSpellBlockMod": "Résistance Magique",
+    "FlatHPPoolMod": "Santé",
+    "FlatMPPoolMod": "Mana",
+    "PercentAttackSpeedMod": "Vitesse d'Attaque",
+    "FlatCritChanceMod": "Chance de Critique",
+    "PercentLifeStealMod": "Vol de Vie",
+    "FlatMovementSpeedMod": "Vitesse de Déplacement",
+    "PercentMovementSpeedMod": "% Vitesse de Déplacement",
+    "FlatHPRegenMod": "Régén. de Santé",
+    "FlatMPRegenMod": "Régén. de Mana"
   },
   "champion": {
     "loading": "Chargement du champion...",

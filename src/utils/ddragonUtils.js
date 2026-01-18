@@ -137,3 +137,43 @@ export const getAbilityImageUrl = async (imageName, type = "spell") => {
   const version = await fetchLatestVersion();
   return `https://ddragon.leagueoflegends.com/cdn/${version}/img/${type}/${imageName}`;
 };
+
+/**
+ * Carrega lista completa de itens do Data Dragon
+ * @param {string} language - Idioma (código i18n)
+ * @returns {Promise<Array>} Array de itens
+ */
+export const fetchItemsList = async (language) => {
+  const ddLang = getDDragonLanguage(language);
+  const version = await fetchLatestVersion();
+  const url = `https://ddragon.leagueoflegends.com/cdn/${version}/data/${ddLang}/item.json`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Falha ao carregar itens");
+    const data = await response.json();
+
+    // Converter objeto de itens em array e adicionar ID
+    return Object.entries(data.data).map(([id, item]) => ({
+      ...item,
+      id,
+    }));
+  } catch (error) {
+    console.error("Erro ao carregar itens:", error);
+    // Fallback para inglês se o idioma falhar
+    if (ddLang !== "en_US") {
+      return fetchItemsList("en-US");
+    }
+    return [];
+  }
+};
+
+/**
+ * Constrói URL para imagem de item
+ * @param {string} itemId - ID do item
+ * @returns {Promise<string>} URL completa
+ */
+export const getItemImageUrl = async (itemId) => {
+  const version = await fetchLatestVersion();
+  return `https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${itemId}.png`;
+};
