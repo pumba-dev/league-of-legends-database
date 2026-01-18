@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "Vida",
+    "hpDesc": "Puntos de vida base en el nivel 1",
+    "mp": "Maná",
+    "mpDesc": "Recurso usado para lanzar habilidades",
+    "armor": "Armadura",
+    "armorDesc": "Reduce el daño físico recibido",
+    "mr": "RM",
+    "mrDesc": "Resistencia Mágica - reduce el daño mágico recibido",
+    "ad": "AD",
+    "adDesc": "Daño de Ataque - poder de los ataques básicos",
+    "speed": "Velocidad",
+    "speedDesc": "Velocidad de movimiento base"
+  },
+  "radarStats": {
+    "attack": "Ataque",
+    "attackDesc": "Capacidad de infligir daño a los enemigos mediante ataques físicos y habilidades ofensivas",
+    "defense": "Defensa",
+    "defenseDesc": "Resistencia y capacidad de sobrevivir en combate, incluyendo vida y regeneración",
+    "magic": "Magia",
+    "magicDesc": "Poder mágico y efectividad de las habilidades que causan daño mágico",
+    "difficulty": "Dificultad",
+    "difficultyDesc": "Complejidad de jugar con este campeón y dominar sus mecánicas"
+  },
+  "abilityStats": {
+    "fullDescription": "Descripción Completa",
+    "details": "Detalles",
+    "scaling": "Mejora con Niveles",
+    "cooldown": "Tiempo de Recarga",
+    "cost": "Coste",
+    "noCost": "Sin Coste",
+    "range": "Alcance",
+    "maxLevel": "Nivel Máx",
+    "damage": "Daño",
+    "manaCost": "Coste de Maná",
+    "slow": "Ralentización",
+    "healing": "Curación",
+    "healingIncrease": "Aumento de Curación",
+    "shield": "Escudo",
+    "duration": "Duración",
+    "attackDamage": "Daño de Ataque",
+    "totalAttackDamageIncrease": "Aumento de Daño Total",
+    "abilityPower": "Poder de Habilidad",
+    "movementSpeed": "Velocidad de Movimiento",
+    "moveSpeed": "Velocidad"
   }
 }

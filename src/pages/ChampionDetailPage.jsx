@@ -19,6 +19,7 @@ function ChampionDetailPage() {
   const { t } = useTranslation()
   const [champion, setChampion] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [isLoreExpanded, setIsLoreExpanded] = useState(false)
 
   useEffect(() => {
     const loadChampion = async () => {
@@ -168,7 +169,29 @@ function ChampionDetailPage() {
               </svg>
               {t('champion.lore')}
             </h2>
-            <p className="text-gray-300 leading-relaxed">{champion.blurb}</p>
+            
+            <div className="text-gray-300 leading-relaxed">
+              {isLoreExpanded && champion.lore ? (
+                <div className="space-y-4">
+                  {champion.lore.split('\n').map((paragraph, index) => (
+                    paragraph.trim() && (
+                      <p key={index}>{paragraph}</p>
+                    )
+                  ))}
+                </div>
+              ) : (
+                <p>{champion.blurb}</p>
+              )}
+            </div>
+            
+            {champion.lore && champion.lore !== champion.blurb && (
+              <button
+                onClick={() => setIsLoreExpanded(!isLoreExpanded)}
+                className="mt-4 text-sm text-lol-gold hover:text-white transition-colors flex items-center gap-1"
+              >
+                {isLoreExpanded ? '← Voltar ao resumo' : 'Ler história completa →'}
+              </button>
+            )}
           </motion.div>
 
           {/* Base Stats Chart */}
@@ -195,29 +218,66 @@ function ChampionDetailPage() {
             className="glass rounded-xl p-6"
           >
             <h2 className="text-2xl font-bold text-lol-gold mb-4">{t('champion.detailedStats')}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
-                { label: t('statNames.hp'), value: champion.stats.hp, perLevel: champion.stats.hpperlevel, color: 'text-green-400' },
-                { label: t('statNames.mana'), value: champion.stats.mp, perLevel: champion.stats.mpperlevel, color: 'text-blue-400' },
-                { label: t('statNames.armor'), value: champion.stats.armor, perLevel: champion.stats.armorperlevel, color: 'text-yellow-400' },
-                { label: t('statNames.magicResist'), value: champion.stats.spellblock, perLevel: champion.stats.spellblockperlevel, color: 'text-purple-400' },
-                { label: t('statNames.attackDamage'), value: champion.stats.attackdamage, perLevel: champion.stats.attackdamageperlevel, color: 'text-red-400' },
-                { label: t('statNames.attackSpeed'), value: champion.stats.attackspeed.toFixed(3), perLevel: champion.stats.attackspeedperlevel, color: 'text-orange-400' },
-                { label: t('statNames.moveSpeed'), value: champion.stats.movespeed, color: 'text-cyan-400' },
-                { label: t('statNames.attackRange'), value: champion.stats.attackrange, color: 'text-pink-400' },
-                { label: t('statNames.hpRegen'), value: champion.stats.hpregen.toFixed(1), perLevel: champion.stats.hpregenperlevel, color: 'text-green-400' },
-                { label: t('statNames.manaRegen'), value: champion.stats.mpregen.toFixed(1), perLevel: champion.stats.mpregenperlevel, color: 'text-blue-400' },
-              ].map((stat, index) => (
-                <div key={index} className="bg-lol-dark-secondary/50 rounded-lg p-3 border border-lol-gold/10 relative">
-                  <div className="text-xs text-gray-500 mb-1">{stat.label}</div>
-                  <div className={`text-lg font-bold ${stat.color}`}>{stat.value}</div>
-                  {stat.perLevel && (
-                    <div className="absolute top-2 right-2 text-xs text-gray-600">
-                      +{stat.perLevel}
+                { key: 'hp', label: t('statNames.hp'), value: champion.stats.hp, perLevel: champion.stats.hpperlevel, color: 'text-green-400', icon: '❤️' },
+                { key: 'hpRegen', label: t('statNames.hpRegen'), value: champion.stats.hpregen.toFixed(1), perLevel: champion.stats.hpregenperlevel, color: 'text-green-400', icon: '💚' },
+                { key: 'mana', label: t('statNames.mana'), value: champion.stats.mp, perLevel: champion.stats.mpperlevel, color: 'text-blue-400', icon: '💧' },
+                { key: 'manaRegen', label: t('statNames.manaRegen'), value: champion.stats.mpregen.toFixed(1), perLevel: champion.stats.mpregenperlevel, color: 'text-blue-400', icon: '💙' },
+                { key: 'attackDamage', label: t('statNames.attackDamage'), value: champion.stats.attackdamage, perLevel: champion.stats.attackdamageperlevel, color: 'text-red-400', icon: '⚔️' },
+                { key: 'attackSpeed', label: t('statNames.attackSpeed'), value: champion.stats.attackspeed.toFixed(3), perLevel: champion.stats.attackspeedperlevel, color: 'text-orange-400', icon: '⚡' },
+                { key: 'armor', label: t('statNames.armor'), value: champion.stats.armor, perLevel: champion.stats.armorperlevel, color: 'text-yellow-400', icon: '🛡️' },
+                { key: 'magicResist', label: t('statNames.magicResist'), value: champion.stats.spellblock, perLevel: champion.stats.spellblockperlevel, color: 'text-purple-400', icon: '✨' },
+                { key: 'moveSpeed', label: t('statNames.moveSpeed'), value: champion.stats.movespeed, color: 'text-cyan-400', icon: '👟' },
+                { key: 'attackRange', label: t('statNames.attackRange'), value: champion.stats.attackrange, color: 'text-pink-400', icon: '🎯' },
+              ].map((stat, index) => {
+                let level18Value = null;
+                
+                if (stat.perLevel) {
+                  // Cálculo especial para Attack Speed (multiplicativo)
+                  if (stat.key === 'attackSpeed') {
+                    const asBase = parseFloat(stat.value);
+                    const asPerLevel = parseFloat(stat.perLevel) / 100; // Converter para decimal
+                    const levelsGained = 17; // Nível 18 - 1
+                    const bonusTotal = levelsGained * asPerLevel;
+                    level18Value = (asBase * (1 + bonusTotal)).toFixed(3);
+                  } else {
+                    // Cálculo linear para outras estatísticas
+                    level18Value = (parseFloat(stat.value) + (parseFloat(stat.perLevel) * 17)).toFixed(1);
+                  }
+                }
+                
+                return (
+                  <div key={index} className="bg-lol-dark-secondary/50 rounded-lg p-4 border border-lol-gold/10 hover:border-lol-gold/30 transition-all">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg">{stat.icon}</span>
+                        <div className="text-sm text-gray-400">{stat.label}</div>
+                      </div>
                     </div>
-                  )}
-                </div>
-              ))}
+                    
+                    <div className="flex items-baseline gap-2">
+                      <div className={`text-2xl font-bold ${stat.color}`}>
+                        {stat.value}
+                      </div>
+                      {stat.perLevel && (
+                        <div className="text-sm text-gray-500">
+                          <span className="text-lol-gold">+{stat.perLevel}</span> /nv
+                        </div>
+                      )}
+                    </div>
+                    
+                    {level18Value && (
+                      <div className="mt-2 pt-2 border-t border-lol-gold/10">
+                        <div className="text-xs text-gray-500">Nível 18:</div>
+                        <div className={`text-sm font-semibold ${stat.color}`}>
+                          {level18Value}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </motion.div>
 
@@ -369,7 +429,7 @@ function ChampionDetailPage() {
             transition={{ duration: 0.5, delay: 1.1 }}
             className="glass rounded-xl p-4 text-center text-sm text-gray-500"
           >
-            <p>{t('champion.version')}: {champion.version}</p>
+            <p>{t('champion.version')}: 16.1.1</p>
             <p className="mt-1">{t('champion.id')}: {champion.key}</p>
           </motion.div>
         </div>

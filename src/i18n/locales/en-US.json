@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "Health",
+    "hpDesc": "Base health points at level 1",
+    "mp": "Mana",
+    "mpDesc": "Resource used to cast abilities",
+    "armor": "Armor",
+    "armorDesc": "Reduces physical damage taken",
+    "mr": "MR",
+    "mrDesc": "Magic Resist - reduces magic damage taken",
+    "ad": "AD",
+    "adDesc": "Attack Damage - power of basic attacks",
+    "speed": "Speed",
+    "speedDesc": "Base movement speed"
+  },
+  "radarStats": {
+    "attack": "Attack",
+    "attackDesc": "Ability to deal damage to enemies through physical attacks and offensive abilities",
+    "defense": "Defense",
+    "defenseDesc": "Resistance and ability to survive in combat, including health and regeneration",
+    "magic": "Magic",
+    "magicDesc": "Magical power and effectiveness of abilities that deal magic damage",
+    "difficulty": "Difficulty",
+    "difficultyDesc": "Complexity of playing this champion and mastering their mechanics"
+  },
+  "abilityStats": {
+    "fullDescription": "Full Description",
+    "details": "Details",
+    "scaling": "Improves with Levels",
+    "cooldown": "Cooldown",
+    "cost": "Cost",
+    "noCost": "No Cost",
+    "range": "Range",
+    "maxLevel": "Max Level",
+    "damage": "Damage",
+    "manaCost": "Mana Cost",
+    "slow": "Slow",
+    "healing": "Healing",
+    "healingIncrease": "Healing Increase",
+    "shield": "Shield",
+    "duration": "Duration",
+    "attackDamage": "Attack Damage",
+    "totalAttackDamageIncrease": "Total Attack Damage Increase",
+    "abilityPower": "Ability Power",
+    "movementSpeed": "Movement Speed",
+    "moveSpeed": "Move Speed"
   }
 }

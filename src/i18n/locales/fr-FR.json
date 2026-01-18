@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "Santé",
+    "hpDesc": "Points de vie de base au niveau 1",
+    "mp": "Mana",
+    "mpDesc": "Ressource utilisée pour lancer des sorts",
+    "armor": "Armure",
+    "armorDesc": "Réduit les dégâts physiques subis",
+    "mr": "RM",
+    "mrDesc": "Résistance Magique - réduit les dégâts magiques subis",
+    "ad": "AD",
+    "adDesc": "Dégâts d'Attaque - puissance des attaques de base",
+    "speed": "Vitesse",
+    "speedDesc": "Vitesse de déplacement de base"
+  },
+  "radarStats": {
+    "attack": "Attaque",
+    "attackDesc": "Capacité à infliger des dégâts aux ennemis par des attaques physiques et des compétences offensives",
+    "defense": "Défense",
+    "defenseDesc": "Résistance et capacité à survivre en combat, incluant la santé et la régénération",
+    "magic": "Magie",
+    "magicDesc": "Puissance magique et efficacité des compétences infligeant des dégâts magiques",
+    "difficulty": "Difficulté",
+    "difficultyDesc": "Complexité de jouer ce champion et maîtriser ses mécaniques"
+  },
+  "abilityStats": {
+    "fullDescription": "Description Complète",
+    "details": "Détails",
+    "scaling": "Amélioration par Niveau",
+    "cooldown": "Temps de Recharge",
+    "cost": "Coût",
+    "noCost": "Sans Coût",
+    "range": "Portée",
+    "maxLevel": "Niveau Max",
+    "damage": "Dégâts",
+    "manaCost": "Coût en Mana",
+    "slow": "Ralentissement",
+    "healing": "Soins",
+    "healingIncrease": "Augmentation des Soins",
+    "shield": "Bouclier",
+    "duration": "Durée",
+    "attackDamage": "Dégâts d'Attaque",
+    "totalAttackDamageIncrease": "Augmentation des Dégâts Totaux",
+    "abilityPower": "Puissance",
+    "movementSpeed": "Vitesse de Déplacement",
+    "moveSpeed": "Vitesse"
   }
 }

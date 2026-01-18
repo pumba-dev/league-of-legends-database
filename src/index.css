@@ -144,3 +144,16 @@ body {
 .role-support-bg {
   background-color: rgba(0, 201, 167, 0.2);
 }
+
+/* Animação de gradiente para o indicador de chromas */
+@keyframes chromaGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

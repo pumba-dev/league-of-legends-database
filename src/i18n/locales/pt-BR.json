@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "Vida",
+    "hpDesc": "Pontos de vida base do campeão no nível 1",
+    "mp": "Mana",
+    "mpDesc": "Recurso usado para lançar habilidades",
+    "armor": "Armadura",
+    "armorDesc": "Reduz o dano físico recebido",
+    "mr": "RM",
+    "mrDesc": "Resistência Mágica - reduz o dano mágico recebido",
+    "ad": "AD",
+    "adDesc": "Dano de Ataque - poder dos ataques básicos",
+    "speed": "Velocidade",
+    "speedDesc": "Velocidade de movimento base"
+  },
+  "radarStats": {
+    "attack": "Ataque",
+    "attackDesc": "Capacidade de causar dano aos inimigos através de ataques físicos e habilidades ofensivas",
+    "defense": "Defesa",
+    "defenseDesc": "Resistência e capacidade de sobreviver em combate, incluindo vida e regeneração",
+    "magic": "Magia",
+    "magicDesc": "Poder mágico e efetividade de habilidades que causam dano mágico",
+    "difficulty": "Dificuldade",
+    "difficultyDesc": "Complexidade de jogar com este campeão e dominar suas mecânicas"
+  },
+  "abilityStats": {
+    "fullDescription": "Descrição Completa",
+    "details": "Detalhes",
+    "scaling": "Melhora ao Upar",
+    "cooldown": "Tempo de Recarga",
+    "cost": "Custo",
+    "noCost": "Sem Custo",
+    "range": "Alcance",
+    "maxLevel": "Nível Máx",
+    "damage": "Dano",
+    "manaCost": "Custo de Mana",
+    "slow": "Lentidão",
+    "healing": "Cura",
+    "healingIncrease": "Aumento de Cura",
+    "shield": "Escudo",
+    "duration": "Duração",
+    "attackDamage": "Dano de Ataque",
+    "totalAttackDamageIncrease": "Aumento de Dano Total",
+    "abilityPower": "Poder de Habilidade",
+    "movementSpeed": "Velocidade de Movimento",
+    "moveSpeed": "Velocidade"
   }
 }

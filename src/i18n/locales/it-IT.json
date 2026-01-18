@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "Salute",
+    "hpDesc": "Punti vita base al livello 1",
+    "mp": "Mana",
+    "mpDesc": "Risorsa usata per lanciare abilità",
+    "armor": "Armatura",
+    "armorDesc": "Riduce i danni fisici subiti",
+    "mr": "RM",
+    "mrDesc": "Resistenza Magica - riduce i danni magici subiti",
+    "ad": "AD",
+    "adDesc": "Danno d'Attacco - potenza degli attacchi base",
+    "speed": "Velocità",
+    "speedDesc": "Velocità di movimento base"
+  },
+  "radarStats": {
+    "attack": "Attacco",
+    "attackDesc": "Capacità di infliggere danni ai nemici tramite attacchi fisici e abilità offensive",
+    "defense": "Difesa",
+    "defenseDesc": "Resistenza e capacità di sopravvivere in combattimento, inclusi vita e rigenerazione",
+    "magic": "Magia",
+    "magicDesc": "Potere magico ed efficacia delle abilità che infliggono danni magici",
+    "difficulty": "Difficoltà",
+    "difficultyDesc": "Complessità nel giocare questo campione e padroneggiare le sue meccaniche"
+  },
+  "abilityStats": {
+    "fullDescription": "Descrizione Completa",
+    "details": "Dettagli",
+    "scaling": "Migliora con i Livelli",
+    "cooldown": "Tempo di Ricarica",
+    "cost": "Costo",
+    "noCost": "Nessun Costo",
+    "range": "Raggio",
+    "maxLevel": "Livello Max",
+    "damage": "Danno",
+    "manaCost": "Costo Mana",
+    "slow": "Rallentamento",
+    "healing": "Guarigione",
+    "healingIncrease": "Aumento Guarigione",
+    "shield": "Scudo",
+    "duration": "Durata",
+    "attackDamage": "Danno d'Attacco",
+    "totalAttackDamageIncrease": "Aumento Danno Totale",
+    "abilityPower": "Potere Magico",
+    "movementSpeed": "Velocità di Movimento",
+    "moveSpeed": "Velocità"
   }
 }

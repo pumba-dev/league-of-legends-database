@@ -93,5 +93,51 @@
     "french": "Français",
     "italian": "Italiano",
     "chinese": "中文"
+  },
+  "chartStats": {
+    "hp": "生命值",
+    "hpDesc": "1级时的基础生命值",
+    "mp": "法力值",
+    "mpDesc": "用于释放技能的资源",
+    "armor": "护甲",
+    "armorDesc": "减少受到的物理伤害",
+    "mr": "魔抗",
+    "mrDesc": "魔法抗性 - 减少受到的魔法伤害",
+    "ad": "攻击力",
+    "adDesc": "普通攻击的伤害",
+    "speed": "移速",
+    "speedDesc": "基础移动速度"
+  },
+  "radarStats": {
+    "attack": "攻击",
+    "attackDesc": "通过物理攻击和进攻性技能对敌人造成伤害的能力",
+    "defense": "防御",
+    "defenseDesc": "战斗中的抗性和生存能力，包括生命值和生命恢复",
+    "magic": "魔法",
+    "magicDesc": "魔法威力和造成魔法伤害的技能效果",
+    "difficulty": "难度",
+    "difficultyDesc": "使用此英雄并掌握其机制的复杂程度"
+  },
+  "abilityStats": {
+    "fullDescription": "完整描述",
+    "details": "详情",
+    "scaling": "升级提升",
+    "cooldown": "冷却时间",
+    "cost": "消耗",
+    "noCost": "无消耗",
+    "range": "范围",
+    "maxLevel": "最高等级",
+    "damage": "伤害",
+    "manaCost": "法力消耗",
+    "slow": "减速",
+    "healing": "治疗",
+    "healingIncrease": "治疗提升",
+    "shield": "护盾",
+    "duration": "持续时间",
+    "attackDamage": "攻击力",
+    "totalAttackDamageIncrease": "总攻击力提升",
+    "abilityPower": "法术强度",
+    "movementSpeed": "移动速度",
+    "moveSpeed": "移速"
   }
 }

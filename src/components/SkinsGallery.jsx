@@ -16,15 +16,7 @@ function SkinsGallery({ championId, skins }) {
   const currentSkin = skins[selectedSkin]
 
   return (
-    <div className="glass rounded-xl p-6">
-      <h2 className="text-2xl font-bold text-lol-gold mb-4 flex items-center">
-        <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
-          <path fillRule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clipRule="evenodd" />
-        </svg>
-        Skins ({skins.length})
-      </h2>
-
+    <div>
       {/* Splash Art Principal */}
       <div className="relative rounded-xl overflow-hidden mb-4 aspect-video bg-lol-dark-secondary">
         <AnimatePresence mode="wait">
@@ -77,7 +69,16 @@ function SkinsGallery({ championId, skins }) {
             
             {/* Indicador de Chromas */}
             {skin.chromas && (
-              <div className="absolute top-1 right-1 w-3 h-3 bg-lol-gold rounded-full" />
+              <div 
+                className="absolute top-1 right-1 w-3 h-3 rounded-full animate-pulse"
+                style={{
+                  background: 'linear-gradient(135deg, #ff0080, #ff8c00, #40e0d0, #8a2be2, #ff0080)',
+                  backgroundSize: '200% 200%',
+                  animation: 'chromaGradient 3s ease infinite, pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                  boxShadow: '0 0 8px rgba(255, 0, 128, 0.6)',
+                  border: '1.5px solid rgba(255, 255, 255, 0.9)'
+                }}
+              />
             )}
           </button>
         ))}
