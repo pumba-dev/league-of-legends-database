@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #010a13;
+  color: #f0e6d2;
+  overflow-x: hidden;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e2328;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c89b3c;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f0e6d2;
+}
+
+/* Custom animations */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(to right, #1e2328 4%, #2c3137 25%, #1e2328 36%);
+  background-size: 1000px 100%;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(30, 35, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 155, 60, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #c89b3c 0%, #f0e6d2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Champion card hover effect */
+.champion-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.champion-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 155, 60, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.champion-card:hover::before {
+  left: 100%;
+}
+
+/* Role colors */
+.role-fighter {
+  color: #c28f2c;
+}
+.role-tank {
+  color: #3c9f3f;
+}
+.role-mage {
+  color: #6b48c7;
+}
+.role-assassin {
+  color: #d13639;
+}
+.role-marksman {
+  color: #e67e22;
+}
+.role-support {
+  color: #00c9a7;
+}
+
+.role-fighter-bg {
+  background-color: rgba(194, 143, 44, 0.2);
+}
+.role-tank-bg {
+  background-color: rgba(60, 159, 63, 0.2);
+}
+.role-mage-bg {
+  background-color: rgba(107, 72, 199, 0.2);
+}
+.role-assassin-bg {
+  background-color: rgba(209, 54, 57, 0.2);
+}
+.role-marksman-bg {
+  background-color: rgba(230, 126, 34, 0.2);
+}
+.role-support-bg {
+  background-color: rgba(0, 201, 167, 0.2);
+}
