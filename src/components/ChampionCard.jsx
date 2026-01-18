@@ -1,17 +1,26 @@
 /**
  * ChampionCard Component - Card individual para cada campeão
  * Exibe imagem, nome, título, roles e dificuldade
- * ATUALIZADO: Usando imagens locais da database dragontail
+ * ATUALIZADO: Usando CDN Data Dragon com versão dinâmica
  */
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useState, useEffect } from 'react'
+import { getLatestVersion } from '../utils/ddragonUtils'
 
 function ChampionCard({ champion }) {
   const { t } = useTranslation()
+  const [imageUrl, setImageUrl] = useState('')
   
-  // URL para imagem do campeão (usando CDN da Riot/Data Dragon)
-  const imageUrl = `https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/${champion.image.full}`
+  // Buscar versão mais recente e construir URL da imagem
+  useEffect(() => {
+    const loadImageUrl = async () => {
+      const version = await getLatestVersion()
+      setImageUrl(`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champion.image.full}`)
+    }
+    loadImageUrl()
+  }, [champion.image.full])
   
   // Determinar cor baseada no role principal
   const getRoleColor = (role) => {

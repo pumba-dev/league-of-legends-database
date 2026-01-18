@@ -1,18 +1,26 @@
 /**
  * AbilityCard Component - Card para exibir uma habilidade do campeão
  */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { getLatestVersion } from '../utils/ddragonUtils'
 
 function AbilityCard({ ability, type }) {
   const { t } = useTranslation()
   const [showDetails, setShowDetails] = useState(false)
   const [showLevelTip, setShowLevelTip] = useState(false)
   const [showDescriptionTooltip, setShowDescriptionTooltip] = useState(false)
+  const [abilityImageUrl, setAbilityImageUrl] = useState('')
   
   // URL base para imagens de habilidades - passivas ficam em /passive/, outras em /spell/
-  const imageFolder = type === 'passive' ? 'passive' : 'spell';
-  const abilityImageUrl = `https://ddragon.leagueoflegends.com/cdn/14.1.1/img/${imageFolder}/${ability.image.full}`;
+  useEffect(() => {
+    const loadImageUrl = async () => {
+      const imageFolder = type === 'passive' ? 'passive' : 'spell'
+      const version = await getLatestVersion()
+      setAbilityImageUrl(`https://ddragon.leagueoflegends.com/cdn/${version}/img/${imageFolder}/${ability.image.full}`)
+    }
+    loadImageUrl()
+  }, [ability.image.full, type])
   
   // Cores por tipo de habilidade
   const abilityColors = {

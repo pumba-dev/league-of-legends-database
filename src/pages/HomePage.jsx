@@ -9,9 +9,10 @@ import ChampionCard from '../components/ChampionCard'
 import FilterBar from '../components/FilterBar'
 import SkeletonCard from '../components/SkeletonCard'
 import StatsOverview from '../components/StatsOverview'
+import { fetchChampionsList } from '../utils/ddragonUtils'
 
 function HomePage() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [loading, setLoading] = useState(true)
   const [champions, setChampions] = useState([])
   const [filters, setFilters] = useState({ 
@@ -24,13 +25,12 @@ function HomePage() {
   const [displayCount, setDisplayCount] = useState(20) // Scroll infinito: começar com 20
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
-  // Carregar dados dos campeões da nova database consolidada
+  // Carregar dados dos campeões da Data Dragon API baseado no idioma
   useEffect(() => {
     const loadChampions = async () => {
       setLoading(true)
       try {
-        const response = await fetch('/champions-full.json')
-        const championsArray = await response.json()
+        const championsArray = await fetchChampionsList(i18n.language)
         setChampions(championsArray)
       } catch (error) {
         console.error('Erro ao carregar campeões:', error)
@@ -40,7 +40,7 @@ function HomePage() {
     }
 
     loadChampions()
-  }, [])
+  }, [i18n.language]) // Recarregar quando o idioma mudar
 
   // Extrair todas as tags únicas para o filtro
   const allTags = useMemo(() => {

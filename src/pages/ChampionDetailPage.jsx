@@ -12,11 +12,12 @@ import BaseStatsChart from '../components/BaseStatsChart'
 import AbilityCard from '../components/AbilityCard'
 import SkinsGallery from '../components/SkinsGallery'
 import TipsSection from '../components/TipsSection'
+import { fetchChampionDetails } from '../utils/ddragonUtils'
 
 function ChampionDetailPage() {
   const { championId } = useParams()
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [champion, setChampion] = useState(null)
   const [loading, setLoading] = useState(true)
   const [isLoreExpanded, setIsLoreExpanded] = useState(false)
@@ -25,24 +26,24 @@ function ChampionDetailPage() {
     const loadChampion = async () => {
       setLoading(true)
       try {
-        const response = await fetch('/champions-full.json')
-        const championsArray = await response.json()
-        
-        // Buscar campeão específico
-        const championData = championsArray.find(c => c.id === championId)
+        const championData = await fetchChampionDetails(championId, i18n.language)
         
         if (championData) {
           setChampion(championData)
+        } else {
+          // Campeão não encontrado, redirecionar para home
+          navigate('/')
         }
       } catch (error) {
         console.error('Erro ao carregar campeão:', error)
+        navigate('/')
       } finally {
         setTimeout(() => setLoading(false), 500)
       }
     }
 
     loadChampion()
-  }, [championId])
+  }, [championId, i18n.language, navigate]) // Recarregar quando o idioma mudar
 
   if (loading) {
     return (
