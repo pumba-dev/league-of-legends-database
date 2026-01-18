@@ -248,41 +248,41 @@ function ItemsPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div>
-        <h1 className="text-4xl font-bold gradient-text mb-2">
+      <div className="text-center md:text-left">
+        <h1 className="text-3xl md:text-4xl font-bold gradient-text mb-2">
           {t('items.title', 'Itens do League of Legends')}
         </h1>
-        <p className="text-gray-400">
+        <p className="text-gray-400 text-sm md:text-base">
           {t('items.subtitle', 'Explore todos os itens disponíveis no jogo')}
         </p>
       </div>
 
       {/* Stats Overview */}
       {stats && dailyCuriosity && (
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-          <div className="glass rounded-xl p-4 flex flex-col items-center justify-center">
-            <div className="text-3xl font-bold text-lol-gold mb-1">{stats.totalItems}</div>
-            <div className="text-sm text-gray-400">{t('items.totalItems', 'Total de Itens')}</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+          <div className="glass rounded-xl p-3 md:p-4 flex flex-col items-center justify-center">
+            <div className="text-2xl md:text-3xl font-bold text-lol-gold mb-1">{stats.totalItems}</div>
+            <div className="text-xs md:text-sm text-gray-400 text-center">{t('items.totalItems', 'Total de Itens')}</div>
           </div>
-          <div className="glass rounded-xl p-4 flex flex-col items-center justify-center">
-            <div className="text-3xl font-bold text-blue-400 mb-1">{stats.avgPrice}</div>
-            <div className="text-sm text-gray-400">{t('items.avgPrice', 'Preço Médio')}</div>
+          <div className="glass rounded-xl p-3 md:p-4 flex flex-col items-center justify-center">
+            <div className="text-2xl md:text-3xl font-bold text-blue-400 mb-1">{stats.avgPrice}</div>
+            <div className="text-xs md:text-sm text-gray-400 text-center">{t('items.avgPrice', 'Preço Médio')}</div>
           </div>
-          <div className="glass rounded-xl p-4 flex flex-col items-center justify-center">
-            <div className="text-lg font-bold text-green-400 mb-2">{stats.cheapest.name}</div>
-            <div className="text-sm text-gray-400 mb-1">{t('items.cheapest', 'Mais Barato')}</div>
+          <div className="glass rounded-xl p-3 md:p-4 flex flex-col items-center justify-center">
+            <div className="text-base md:text-lg font-bold text-green-400 mb-1 md:mb-2 text-center">{stats.cheapest.name}</div>
+            <div className="text-xs md:text-sm text-gray-400 mb-1">{t('items.cheapest', 'Mais Barato')}</div>
             <div className="text-xs text-gray-500">{stats.cheapest.gold?.total}{t('items.goldUnit', 'G')}</div>
           </div>
-          <div className="glass rounded-xl p-4 flex flex-col items-center justify-center">
-            <div className="text-lg font-bold text-purple-400 mb-2">{stats.mostExpensive.name}</div>
-            <div className="text-sm text-gray-400 mb-1">{t('items.mostExpensive', 'Mais Caro')}</div>
+          <div className="glass rounded-xl p-3 md:p-4 flex flex-col items-center justify-center">
+            <div className="text-base md:text-lg font-bold text-purple-400 mb-1 md:mb-2 text-center">{stats.mostExpensive.name}</div>
+            <div className="text-xs md:text-sm text-gray-400 mb-1">{t('items.mostExpensive', 'Mais Caro')}</div>
             <div className="text-xs text-gray-500">{stats.mostExpensive.gold?.total}{t('items.goldUnit', 'G')}</div>
           </div>
-          <div className="glass rounded-xl p-4 text-center relative group flex flex-col">
-            <div className="absolute top-2 right-2 text-2xl opacity-50 group-hover:opacity-100 transition-opacity">
+          <div className="glass rounded-xl p-3 md:p-4 text-center relative group flex flex-col col-span-2 md:col-span-1">
+            <div className="absolute top-2 right-2 text-xl md:text-2xl opacity-50 group-hover:opacity-100 transition-opacity">
               🎯
             </div>
-            <div className="text-lg font-bold text-lol-gold mb-2 px-6">
+            <div className="text-base md:text-lg font-bold text-lol-gold mb-2 px-4 md:px-6">
               {dailyCuriosity.title}
             </div>
             <div className="text-xs text-gray-400 px-2 mb-2 flex-1 flex items-center justify-center leading-relaxed">
@@ -296,7 +296,7 @@ function ItemsPage() {
       )}
 
       {/* Filters */}
-      <div className="glass rounded-xl p-6 space-y-4">
+      <div className="glass rounded-xl p-4 md:p-6 space-y-4">
         {/* Search */}
         <div className="relative">
           <input
@@ -324,16 +324,16 @@ function ItemsPage() {
         </div>
 
         {/* Filter Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4">
           {/* Sort */}
           <div>
-            <label className="block text-sm font-medium text-gray-400 mb-2">
+            <label className="block text-xs md:text-sm font-medium text-gray-400 mb-2">
               🔄 {t('items.sortBy', 'Ordenar')}
             </label>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
+              className="w-full bg-lol-dark border border-lol-gold/30 rounded-lg px-3 md:px-4 py-2 md:py-3 text-sm md:text-base text-white focus:outline-none focus:border-lol-gold transition-colors cursor-pointer"
             >
               <option value="name-asc">{t('items.nameAsc', 'Nome (A-Z)')}</option>
               <option value="name-desc">{t('items.nameDesc', 'Nome (Z-A)')}</option>
@@ -498,7 +498,7 @@ function ItemsPage() {
       </div>
 
       {/* Items Grid */}
-      <div className="grid grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-4">
         {filteredItems.map(item => (
           <ItemCard 
             key={item.id} 
