@@ -244,7 +244,7 @@ function StatsOverview({ champions }) {
           {currentFact.value}
         </div>
         <div className="text-sm text-gray-400">{currentFact.label}</div>
-        <div className="text-xs text-gray-500 mt-1">({currentFact.detail})</div>
+        <div className="text-xs text-gray-500 mt-1 mb-2">({currentFact.detail})</div>
         <div className="absolute bottom-1 right-2 text-xs text-lol-gold/50">
           💡 {t('stats.dailyFact')}
         </div>
