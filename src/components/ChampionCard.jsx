@@ -10,8 +10,8 @@ import { useTranslation } from 'react-i18next'
 function ChampionCard({ champion }) {
   const { t } = useTranslation()
   
-  // URL para imagem do campeão (usando database local dragontail)
-  const imageUrl = `/database/dragontail-16.1.1/16.1.1/img/champion/${champion.image.full}`
+  // URL para imagem do campeão (usando CDN da Riot/Data Dragon)
+  const imageUrl = `https://ddragon.leagueoflegends.com/cdn/14.1.1/img/champion/${champion.image.full}`
   
   // Determinar cor baseada no role principal
   const getRoleColor = (role) => {

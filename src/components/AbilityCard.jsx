@@ -12,7 +12,7 @@ function AbilityCard({ ability, type }) {
   
   // URL base para imagens de habilidades - passivas ficam em /passive/, outras em /spell/
   const imageFolder = type === 'passive' ? 'passive' : 'spell';
-  const abilityImageUrl = `/database/dragontail-16.1.1/16.1.1/img/${imageFolder}/${ability.image.full}`;
+  const abilityImageUrl = `https://ddragon.leagueoflegends.com/cdn/14.1.1/img/${imageFolder}/${ability.image.full}`;
   
   // Cores por tipo de habilidade
   const abilityColors = {

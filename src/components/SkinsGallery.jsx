@@ -9,7 +9,7 @@ function SkinsGallery({ championId, skins }) {
 
   // URL base para splash arts
   const getSplashUrl = (skinNum) => {
-    return `/database/dragontail-16.1.1/img/champion/splash/${championId}_${skinNum}.jpg`
+    return `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championId}_${skinNum}.jpg`
   }
 
   // Skin selecionada
