@@ -36,19 +36,20 @@ function ItemCard({ item, onTagClick }) {
     if (!buttonRef.current) return { top: 0, left: 0 }
 
     const rect = buttonRef.current.getBoundingClientRect()
-    const tooltipWidth = 320 // Largura aproximada do tooltip
+    const isMobile = window.innerWidth < 640 // sm breakpoint
+    const tooltipWidth = isMobile ? window.innerWidth - 32 : 320 // 32px = 2rem de margem
     const tooltipHeight = 200 // Altura aproximada do tooltip
 
     let top = rect.bottom + 8 // 8px abaixo do botão
-    let left = rect.left + (rect.width / 2) - (tooltipWidth / 2) // Centralizado horizontalmente
+    let left = isMobile ? 16 : rect.left + (rect.width / 2) - (tooltipWidth / 2) // Centralizado ou com margem
 
-    // Ajustar se sair da tela à direita
-    if (left + tooltipWidth > window.innerWidth) {
+    // Ajustar se sair da tela à direita (apenas desktop)
+    if (!isMobile && left + tooltipWidth > window.innerWidth) {
       left = window.innerWidth - tooltipWidth - 16
     }
 
-    // Ajustar se sair da tela à esquerda
-    if (left < 16) {
+    // Ajustar se sair da tela à esquerda (apenas desktop)
+    if (!isMobile && left < 16) {
       left = 16
     }
 
@@ -316,7 +317,7 @@ function ItemCard({ item, onTagClick }) {
       {showStats && createPortal(
         <div
           ref={statsTooltipRef}
-          className="fixed z-[9999] w-80 p-3 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl"
+          className="fixed z-[9999] w-[calc(100vw-2rem)] sm:w-80 p-3 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl"
           style={{
             top: `${statsPosition.top}px`,
             left: `${statsPosition.left}px`,
@@ -362,7 +363,7 @@ function ItemCard({ item, onTagClick }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="fixed z-[9999] w-96 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl overflow-hidden"
+          className="fixed z-[9999] w-[calc(100vw-2rem)] sm:w-96 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl overflow-hidden"
           style={{
             top: `${descriptionPosition.top}px`,
             left: `${descriptionPosition.left}px`,
@@ -406,7 +407,7 @@ function ItemCard({ item, onTagClick }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="fixed z-[9999] w-80 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl overflow-hidden"
+          className="fixed z-[9999] w-[calc(100vw-2rem)] sm:w-80 bg-lol-dark border border-lol-gold rounded-lg shadow-2xl overflow-hidden"
           style={{ 
             top: `${plaintextPosition.top}px`, 
             left: `${plaintextPosition.left}px`,
