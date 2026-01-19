@@ -52,6 +52,16 @@ function Layout({ children }) {
                 >
                   {t('nav.items', 'Itens')}
                 </Link>
+                <Link
+                  to="/profile"
+                  className={`px-4 py-2 rounded-lg transition-colors ${
+                    location.pathname === '/profile' 
+                      ? 'bg-lol-gold/20 text-lol-gold' 
+                      : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+                  }`}
+                >
+                  {t('nav.profile', 'Perfil')}
+                </Link>
               </nav>
               
               {/* Language Selector */}
@@ -80,6 +90,16 @@ function Layout({ children }) {
               }`}
             >
               {t('nav.items', 'Itens')}
+            </Link>
+            <Link
+              to="/profile"
+              className={`flex-1 text-center px-4 py-2 rounded-lg transition-colors ${
+                location.pathname === '/profile' 
+                  ? 'bg-lol-gold/20 text-lol-gold' 
+                  : 'text-gray-400 hover:text-lol-gold hover:bg-lol-gold/10'
+              }`}
+            >
+              {t('nav.profile', 'Perfil')}
             </Link>
           </nav>
         </div>
