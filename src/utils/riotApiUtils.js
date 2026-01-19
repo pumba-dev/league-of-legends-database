@@ -219,6 +219,17 @@ export const getProfileIconUrl = (profileIconId, version = "14.1.1") => {
 };
 
 /**
+ * Obter URL do emblema de ranking
+ * @param {string} tier - Tier do ranking (IRON, BRONZE, SILVER, GOLD, PLATINUM, EMERALD, DIAMOND, MASTER, GRANDMASTER, CHALLENGER)
+ * @returns {string} URL do emblema
+ */
+export const getRankedEmblemUrl = (tier) => {
+  if (!tier) return null;
+  const tierLower = tier.toLowerCase();
+  return `https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/ranked-emblem/emblem-${tierLower}.png`;
+};
+
+/**
  * Obter cor do tier
  * @param {string} tier - Tier (IRON, BRONZE, SILVER, etc)
  */
@@ -252,38 +263,125 @@ export const calculateKDA = (kills, deaths, assists) => {
 /**
  * Formatar tempo desde a partida
  * @param {number} timestamp - Timestamp da partida
- * @param {string} locale - Locale para tradução
+ * @param {Function} t - Função de tradução do i18next
  */
-export const getTimeAgo = (timestamp, locale = "pt-BR") => {
+export const getTimeAgo = (timestamp, t = (key) => key) => {
   const now = Date.now();
   const diff = now - timestamp;
   const minutes = Math.floor(diff / 60000);
   const hours = Math.floor(minutes / 60);
   const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30);
 
-  if (days > 0) return `${days}d atrás`;
-  if (hours > 0) return `${hours}h atrás`;
-  if (minutes > 0) return `${minutes}min atrás`;
-  return "Agora";
+  if (months > 0) return t("time.monthsAgo", { count: months });
+  if (days > 0) return t("time.daysAgo", { count: days });
+  if (hours > 0) return t("time.hoursAgo", { count: hours });
+  if (minutes > 0) return t("time.minutesAgo", { count: minutes });
+  return t("time.now");
 };
+
+/**
+ * Cache de constantes da Riot Games
+ */
+let queuesCache = null;
+let mapsCache = null;
+
+/**
+ * Buscar constantes da Riot Games
+ */
+const fetchRiotConstants = async (type) => {
+  const urls = {
+    queues: "https://static.developer.riotgames.com/docs/lol/queues.json",
+    maps: "https://static.developer.riotgames.com/docs/lol/maps.json",
+    gameModes: "https://static.developer.riotgames.com/docs/lol/gameModes.json",
+    gameTypes: "https://static.developer.riotgames.com/docs/lol/gameTypes.json",
+    seasons: "https://static.developer.riotgames.com/docs/lol/seasons.json",
+  };
+
+  try {
+    // Tentar obter do localStorage primeiro
+    const cacheKey = `riot_constants_${type}`;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached);
+      // Cache válido por 24 horas
+      if (Date.now() - timestamp < 24 * 60 * 60 * 1000) {
+        return data;
+      }
+    }
+
+    // Buscar da API
+    const response = await fetch(urls[type]);
+    if (!response.ok) throw new Error(`Failed to fetch ${type}`);
+    const data = await response.json();
+
+    // Salvar no localStorage
+    localStorage.setItem(
+      cacheKey,
+      JSON.stringify({ data, timestamp: Date.now() }),
+    );
+
+    return data;
+  } catch (error) {
+    console.warn(`Error fetching ${type} constants:`, error);
+    return null;
+  }
+};
+
+/**
+ * Inicializar constantes (chamado ao carregar o módulo)
+ */
+const initConstants = async () => {
+  queuesCache = await fetchRiotConstants("queues");
+  mapsCache = await fetchRiotConstants("maps");
+};
+
+// Inicializar constantes
+initConstants();
 
 /**
  * Obter nome do modo de jogo
  * @param {number} queueId - ID da fila
  */
 export const getQueueName = (queueId) => {
-  const queues = {
+  if (queuesCache) {
+    const queue = queuesCache.find((q) => q.queueId === queueId);
+    if (queue) {
+      let name = queue.description || queue.map || `Queue ${queueId}`;
+      // Remover " games" do final da string
+      return name.replace(/ games$/i, "");
+    }
+  }
+
+  // Fallback para alguns modos comuns
+  const fallback = {
     420: "Ranked Solo/Duo",
     440: "Ranked Flex",
+    450: "ARAM",
     400: "Normal Draft",
     430: "Normal Blind",
-    450: "ARAM",
+    480: "Swift Play",
+    490: "Quickplay",
+    700: "Clash",
     900: "URF",
     1020: "One For All",
     1300: "Nexus Blitz",
     1700: "Arena",
   };
-  return queues[queueId] || "Custom";
+
+  return fallback[queueId] || `Custom (${queueId})`;
+};
+
+/**
+ * Obter nome do mapa
+ * @param {number} mapId - ID do mapa
+ */
+export const getMapName = (mapId) => {
+  if (mapsCache) {
+    const map = mapsCache.find((m) => m.mapId === mapId);
+    if (map) return map.mapName;
+  }
+  return `Map ${mapId}`;
 };
 
 /**
@@ -337,7 +435,7 @@ export const getSummonerSpellName = (spellId) => {
     11: "SummonerSmite",
     12: "SummonerTeleport",
     13: "SummonerMana", // Clarity
-    14: "SummonerdIgnite", // Ignite
+    14: "SummonerDot", // Ignite
     21: "SummonerBarrier",
     30: "SummonerPoroRecall",
     31: "SummonerPoroThrow",
@@ -353,13 +451,19 @@ export const getSummonerSpellName = (spellId) => {
  * Obter nome da lane
  */
 export const getLaneName = (lane, role) => {
+  const laneUpper = lane?.toUpperCase();
+  const roleUpper = role?.toUpperCase();
+
   const lanes = {
     TOP: "Top",
     JUNGLE: "Jungle",
     MIDDLE: "Mid",
+    MID: "Mid",
     BOTTOM: "Bot",
+    BOT: "Bot",
     UTILITY: "Support",
-    NONE: "None",
+    SUPPORT: "Support",
+    NONE: "Fill",
   };
-  return lanes[lane] || lanes[role] || "Unknown";
+  return lanes[laneUpper] || lanes[roleUpper] || "Fill";
 };

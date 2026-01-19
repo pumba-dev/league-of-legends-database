@@ -120,12 +120,21 @@ function ProfilePage() {
     )
   }, [favorites])
 
-  // Carregar perfil da URL ao montar o componente
+  // Carregar perfil da URL ao montar o componente e quando os parâmetros mudarem
   useEffect(() => {
     if (urlRiotId && urlRegion) {
       const decodedRiotId = decodeURIComponent(urlRiotId)
       setRiotId(decodedRiotId)
       setSelectedRegion(urlRegion.toUpperCase())
+      
+      // Resetar estados antes de carregar novo perfil
+      setAccount(null)
+      setSummoner(null)
+      setRankedData(null)
+      setMatches([])
+      setLiveGame(null)
+      setChampionMastery([])
+      setError(null)
       
       // Pequeno delay para garantir que os estados foram atualizados
       setTimeout(() => {
@@ -133,7 +142,7 @@ function ProfilePage() {
       }, 100)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) // Apenas na montagem inicial - não queremos re-executar quando urlRegion/urlRiotId mudarem
+  }, [urlRiotId, urlRegion]) // Reagir às mudanças nos parâmetros da URL
 
   /**
    * Buscar dados do jogador (via URL)
@@ -235,16 +244,6 @@ function ProfilePage() {
     // Buscar perfil
     await searchPlayerFromUrl(riotId, selectedRegion)
   }, [riotId, selectedRegion, navigate, searchPlayerFromUrl, t])
-
-  /**
-   * Carregar perfil do histórico
-   */
-  const loadFromHistory = useCallback((entry) => {
-    navigate(`/profile/${entry.region.toLowerCase()}/${encodeURIComponent(entry.riotId)}`)
-    setRiotId(entry.riotId)
-    setSelectedRegion(entry.region)
-    searchPlayerFromUrl(entry.riotId, entry.region)
-  }, [navigate, searchPlayerFromUrl])
 
   /**
    * Auto-refresh para partida ao vivo (30 segundos)
@@ -467,7 +466,7 @@ function ProfilePage() {
           {/* Conteúdo das tabs */}
           <div>
             {activeTab === 'matches' && (
-              <MatchHistory matches={matches} puuid={account?.puuid} />
+              <MatchHistory matches={matches} puuid={account?.puuid} region={selectedRegion} />
             )}
             {activeTab === 'stats' && (
               <ChampionStats 

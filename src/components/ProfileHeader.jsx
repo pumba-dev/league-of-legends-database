@@ -52,7 +52,7 @@ function ProfileHeader({ summoner, account, rankedData, isFavorite, onToggleFavo
           
           {/* Tier */}
           <div 
-            className="text-2xl font-bold mb-1"
+            className="text-xl font-bold mb-1"
             style={{ color: tierColor }}
           >
             {queue.tier} {queue.rank}

@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { getLaneName } from '../utils/riotApiUtils'
+import { getChampionNameById } from '../utils/ddragonUtils'
 
 function ChampionStats({ matches, championMastery, puuid }) {
   const { t } = useTranslation()
@@ -63,6 +64,7 @@ function ChampionStats({ matches, championMastery, puuid }) {
 
     // Estatísticas por lane
     const laneDistribution = Object.entries(laneStats)
+      .filter(([lane]) => lane !== 'Fill') // Filtrar lane Fill
       .map(([lane, data]) => ({
         lane,
         games: data.games,
@@ -113,31 +115,34 @@ function ChampionStats({ matches, championMastery, puuid }) {
             ⭐ {t('profile.topMastery', 'Top 5 Maestria')}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
-            {championMastery.map((mastery) => (
-              <motion.div
-                key={mastery.championId}
-                className="glass-light rounded-lg p-3 text-center"
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="relative inline-block mb-2">
-                  <img
-                    src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${mastery.championId}.png`}
-                    alt="Champion"
-                    className="w-16 h-16 rounded-lg"
-                    onError={(e) => e.target.style.opacity = '0.3'}
-                  />
-                  <div className="absolute -top-2 -right-2 bg-lol-gold text-lol-dark font-bold text-xs px-2 py-0.5 rounded-full">
-                    {mastery.championLevel}
+            {championMastery.map((mastery) => {
+              const championName = getChampionNameById(mastery.championId)
+              return (
+                <motion.div
+                  key={mastery.championId}
+                  className="glass-light rounded-lg p-3 text-center"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <div className="relative inline-block mb-2">
+                    <img
+                      src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
+                      alt={championName}
+                      className="w-16 h-16 rounded-lg"
+                      onError={(e) => e.target.style.opacity = '0.3'}
+                    />
+                    <div className="absolute -top-2 -right-2 bg-lol-gold text-lol-dark font-bold text-xs px-2 py-0.5 rounded-full">
+                      {mastery.championLevel}
+                    </div>
                   </div>
-                </div>
-                <div className="text-xs font-bold text-lol-gold">
-                  {mastery.championPoints.toLocaleString()}
-                </div>
-                <div className="text-xs text-gray-400">
-                  {t('profile.points', 'pontos')}
-                </div>
-              </motion.div>
-            ))}
+                  <div className="text-xs font-bold text-lol-gold">
+                    {mastery.championPoints.toLocaleString()}
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {t('profile.points', 'pontos')}
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
         </div>
       )}
